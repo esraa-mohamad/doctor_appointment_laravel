@@ -1,0 +1,52 @@
+  <!----------Navbar---------->
+  <nav class="navbar navbar-expand-lg py-3 navbar-light bg-light " id="home">
+    <div class="container">
+      <a class="navbar-brand" href="{{route('home')}}">
+        <img src="{{asset('img/logo.svg')}}" alt="logo" style="margin-left: 50px;">
+        <h2 style="font-family: 'Merienda',cursive;">HealthCare</h2>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse " style=" cursor: pointer; font-family: 'Cormorant Garamond', serif; font-size: 18px;"id="navbarNav">
+        <ul class="navbar-nav ">
+          <li class="nav-item">
+            <a  @class(['nav-link','active'=>Route::is('home')])aria-current="page" href="{{route('home')}}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a @class(['nav-link','active'=>Route::is('services')]) href="{{route('services')}}">Services</a>
+          </li>
+          <li class="nav-item">
+            <a @class(['nav-link','active'=>Route::is('doctors')])  href="{{route('doctors')}}">Doctors</a>
+          </li>
+          <li class="nav-item">
+            <a @class(['nav-link','active'=>Route::is('booking')])  href="{{route('booking')}}">Appointment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="right" style="font-family: 'Cormorant Garamond', serif; ">
+      <div class="row" style="margin-right: 40px;">
+        <div class="col-7" style="text-align: center;">
+          <i class="fa-solid fa-user"></i>
+          <p class="user_name" style="padding: 0; margin:0">Hi</p>
+        </div>
+        <div class="col-5 last" style="display: flex; ">
+          <button type="button" class="btn btn-info btn-rounded">Log out</button>
+        </div>
+
+      </div>
+    </div>
+  </nav>
