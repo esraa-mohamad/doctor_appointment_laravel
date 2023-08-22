@@ -6,7 +6,7 @@
 <body style="font-family: 'Merienda', cursive;">
 
 
-  @include('subVies.nav')
+  @include('subViews.nav')
   <!-- Section: Design Block -->
   <section class="text-center">
     <!-- Background image -->
@@ -93,5 +93,5 @@
   </section>
   <!-- Section: Design Block -->
 
-  @include('subVies.footer')
+  @include('subViews.footer')
   @endsection

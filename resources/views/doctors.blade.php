@@ -2,7 +2,7 @@
 @section('content')
 
   <body>
-    @include('subVies.nav')
+    @include('subViews.nav')
      <!-- Start our team -->
      <div class="text-center mx-auto mb-5 " style="max-width: 500px; margin-top: 100px;" id="staff">
       <h2 class="d-inline-block text-primary text-uppercase border-bottom border-5 ">Our Qualified Doctors</h2>
@@ -176,5 +176,5 @@
       </div>
     </div>
 </div>
-@include('subVies.footer')
+@include('subViews.footer')
 @endsection

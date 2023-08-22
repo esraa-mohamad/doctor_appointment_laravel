@@ -2,7 +2,7 @@
 @section('content')
 
   <body>
-    @include('subVies.nav')
+    @include('subViews.nav')
      <!-- Services Start -->
      <div class="container-fluid py-5" id="services" style="margin-bottom: 70px;">
         <div class="container">
@@ -143,5 +143,5 @@
     </div>
 
       <!-- ---------------- pricing section ends--------------------->
-      @include('subVies.footer')
+      @include('subViews.footer')
       @endsection

@@ -1,7 +1,7 @@
 @extends('templates.main')
 @section('content')
 <body>
-@include('subVies.nav')
+@include('subViews.nav')
   <!----------Header---------->
 
   <header>
@@ -150,6 +150,6 @@
       </div>
     </div>
   </section>
-  @include('subVies.footer')
+  @include('subViews.footer')
   @endsection
 
