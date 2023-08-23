@@ -58,13 +58,13 @@
                 <p style="font-weight: 700;  margin-bottom: 5px;">
                   <span style="font-family: 'Cormorant Garamond', serif; ">Are you a staff member?</span>
 
-                  <span><a style="color: rgb(178, 53, 53); font-size:12px;" href="{{route('addStaff')}}">login here</a></span>
+                  <span><a style="color: rgb(178, 53, 53); font-size:12px;" href="{{route('staff_login')}}">login here</a></span>
                 </p>
 
                 <p style="font-weight: 700;  margin-bottom: 5px;">
                   <span style="font-family: 'Cormorant Garamond', serif; ">Are you an admin?</span>
 
-                  <span><a style="color: rgb(178, 53, 53); font-size:12px;" href="{{route('admin')}}">login here</a></span>
+                  <span><a style="color: rgb(178, 53, 53); font-size:12px;" href="{{route('login_Admin')}}">login here</a></span>
                 </p>
 
 
