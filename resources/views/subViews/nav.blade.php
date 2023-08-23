@@ -25,7 +25,7 @@
             <a @class(['nav-link','active'=>Route::is('services')]) href="{{route('services')}}">Services</a>
           </li>
           <li class="nav-item">
-            <a @class(['nav-link','active'=>Route::is('doctors')])  href="{{route('doctors')}}">Doctors</a>
+            <a @class(['nav-link','active'=>Route::is('Doctors')])  href="{{route('Doctors')}}">Doctors</a>
           </li>
           <li class="nav-item">
             <a @class(['nav-link','active'=>Route::is('booking')])  href="{{route('booking')}}">Appointment</a>
