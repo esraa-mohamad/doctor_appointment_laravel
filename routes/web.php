@@ -1,51 +1,24 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\PatientController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-
-
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
-
-Route::get('/signup', function () {
-    return view('signup');
-})->name('signup');
-
-Route::get('/addDoctor', function () {
-    return view('add_doctor');
-})->name('addDoctor');
-
-Route::get('/addService', function () {
-    return view('add_service');
-})->name('addService');
-
-Route::get('/addStaff', function () {
-    return view('add_staff');
-})->name('addStaff');
-
-Route::get('/admin', function () {
-    return view('admin_login');
-})->name('admin');
-
-Route::get('/booking', function () {
-    return view('booking_appointment');
-})->name('booking');
-
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+Route::get('/home', [PatientController::class, 'home'])->name('home');
+Route::get('/login', [PatientController::class, 'login'])->name('login');
+Route::get('/signup', [PatientController::class, 'signup'])->name('signup');
+Route::get('/booking', [AppointmentController::class, 'booking'])->name('booking');
+Route::get('/admin', [AdminController::class, 'login_Admin'])->name('login_Admin');
+Route::get('/services', [ServiceController::class, 'services'])->name('services');
+Route::get('/addService', [ServiceController::class, 'Add_service'])->name('Add_service');
+Route::get('/addStaff', [StaffController::class, 'staff_login'])->name('staff_login');
+Route::get('/doctors', [DoctorController::class, 'Doctors'])->name('Doctors');
+Route::get('/addDoctor', [DoctorController::class, 'Add_Doctor'])->name('Add_Doctor');
 
 
 Route::get('/receptionest', function () {
@@ -55,14 +28,6 @@ Route::get('/receptionest', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
-
-Route::get('/doctors', function () {
-    return view('doctors');
-})->name('doctors');
-
-Route::get('/services', function () {
-    return view('services');
-})->name('services');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
