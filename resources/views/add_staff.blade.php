@@ -15,7 +15,7 @@
         <div class="col">
           <div class="form-outline">
             @csrf
-
+ 
 
             <!-- first name -->
             <input type="text" id="form6Example1" name="fname" value="{{ old('fname') }}" class="form-control" />

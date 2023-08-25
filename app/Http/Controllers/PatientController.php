@@ -70,7 +70,7 @@ class PatientController extends Controller
     
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
-        }
+        } 
         DB::insert("insert into patients (fname, lname, phone, national_id, email,password) 
         values (?,?,?,?,?,?)",[$fname,$lname,$phone,$national_id, $email, $password]);
 

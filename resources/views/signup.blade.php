@@ -37,7 +37,7 @@
                       <div class="form-outline">
                         <input type="text" id="form3Example1" class="form-control" name="fname" value="{{ old('fname') }}" />
                         <label class="form-label" for="form3Example1">First name</label>
-                      </div>
+                      </div> 
                     </div>
                     @error('fname')
                     <div class="text-danger">{{ $message }}</div>

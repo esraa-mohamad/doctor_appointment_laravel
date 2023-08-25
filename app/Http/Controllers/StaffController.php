@@ -90,7 +90,7 @@ class StaffController extends Controller
         DB::insert("insert into staff (fname, lname, address, national_id, email,phone, code, shift_time, sallary,staff_type, additional_info) 
         values (?,?,?,?,?,?,?,?,?,?,?)",[$fname,$lname,$address,$national_id, $email, $phone, $code, $shift_time, $sallary,$staff_type,$additional_info]);
 
-        return redirect(route('dashboard'));
+        return redirect(route('dashboard')); 
 
 
         

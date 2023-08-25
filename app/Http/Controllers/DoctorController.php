@@ -94,5 +94,5 @@ class DoctorController extends Controller
     }
     public function delete_Doctor(){
         return "doctor deleted";
-    }
+    } 
 }

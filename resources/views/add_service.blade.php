@@ -19,7 +19,7 @@
 
       @error('service_name')
       <div class="text-danger">{{ $message }}</div>
-    @enderror
+    @enderror 
 
       <!-- Service code -->
       <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">

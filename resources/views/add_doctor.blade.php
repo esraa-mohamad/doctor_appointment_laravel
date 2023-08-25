@@ -118,7 +118,7 @@
       <div class="text-danger">{{ $message }}</div>
     @enderror
 
-
+ 
       <!-- Submit button -->
       <input type="submit" class="btn btn-primary btn-block mb-4" style="font-family: 'Cormorant Garamond'; font-size: 15px;" name="add_doctor" value="ADD"></input>
     </form>

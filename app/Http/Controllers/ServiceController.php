@@ -57,7 +57,7 @@ class ServiceController extends Controller
         DB::insert("insert into services (service_name, service_code,  service_type, cost, additional_info) 
         values (?,?,?,?,?)",[ $service_name, $service_code, $service_type,$cost,$additional_info]);
 
-        return redirect(route('dashboard'));
+        return redirect(route('dashboard')); 
 
        
         

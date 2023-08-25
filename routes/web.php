@@ -14,7 +14,7 @@ Route::get('/home', [PatientController::class, 'home'])->name('home');
 Route::get('/login', [PatientController::class, 'login'])->name('login');
 
 Route::get('/signup', [PatientController::class, 'signup'])->name('signup');
-Route::post('/signup', [PatientController::class, 'Handle_signup'])->name('Handle_signup');
+Route::post('/signup', [PatientController::class, 'Handle_signup'])->name('Handle_signup'); 
 
 Route::get('/booking', [AppointmentController::class, 'booking'])->name('booking');
 Route::get('/admin', [AdminController::class, 'login_Admin'])->name('login_Admin');
