@@ -30,10 +30,10 @@
               <!-- 2 column grid layout with text inputs for the first and last names -->
 
 
-              <!-- patient name -->
+              <!-- patient first name -->
               <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
                 <input type="text" id="form3Example1" class="form-control" />
-                <label class="form-label" for="form3Example1">Patient name</label>
+                <label class="form-label" for="form3Example1">Patient first name</label>
               </div>
 
               <!-- last name -->
