@@ -12,6 +12,7 @@ class PatientController extends Controller
         return view('home');
     }
         
+        
      public function login(){
         return view('login');
     }
@@ -19,6 +20,7 @@ class PatientController extends Controller
      public function signup(){
         return view('signup');
     }
+  
     public function Handle_signup(Request $request){
 
         $fname=$request->fname;

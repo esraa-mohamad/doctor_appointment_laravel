@@ -2,37 +2,55 @@
 
 @section('content')
 <body>
-    <!--Main Navigation-->
     @include('subViews.sidebar')
+    <!--Main Navigation-->
 <header>
-   
 
     <div class="container">
+    <button type="button" id="btt" class="btn btn-info"> <a class="text-white"
+        @class([Route::is('addStaff')])aria-current="page" href="{{route('addStaff')}}">ADD Staff+ </a
+        > </button>
     <table class="table">
       <thead>
         <tr>
           <th scope="col">id</th>
           <th scope="col">First Name</th>
           <th scope="col">Last Name</th>
-          <th scope="col">phone</th>
+          <th scope="col">address</th>
           <th scope="col">national id</th>
           <th scope="col">email</th>
+          <th scope="col">phone</th>
+          <th scope="col">code</th>
+          <th scope="col">shift_time</th>
+          <th scope="col">salary</th>
+          <th scope="col">staff_type</th>
+          <th scope="col">info</th>
+          <th scope="col">update</th>
           <th scope="col">delete</th>
         </tr>
       </thead>
       <tbody>
-         @foreach ($patients as $patient)
+        @foreach ($staff as $staff)
         <tr>
-        <td>{{ $patient->id }}</td>
-         <td>{{ $patient->fname }}</td>
-         <td>{{ $patient->lname }}</td>
-         <td>{{ $patient->phone }}</td>
-         <td>{{ $patient->national_id }}</td>
-         <td>{{ $patient->email }}</td>
+        <td>{{ $staff->id }}</td>
+         <td>{{ $staff->fname }}</td>
+         <td>{{ $staff->lname }}</td>
+         <td>{{ $staff->address }}</td>
+         <td>{{ $staff->national_id }}</td>
+         <td>{{ $staff->email }}</td>
+         <td>{{ $staff->phone }}</td>
+         <td>{{ $staff->code }}</td>
+         <td>{{ $staff->shift_time }}</td>
+         <td>{{ $staff->sallary }}</td>
+         <td>{{ $staff->staff_type }}</td>
+         <td>{{ $staff->additional_info }}</td>
+         <td><a class="text-white"
+          @class([Route::is('UpdateStaff')])aria-current="page" href="{{route('UpdateStaff',['id'=>$staff->id])}}"><i class="fas fa-pen-to-square text-info"></i></a
+          ></td>
          <td> <i class="far fa-trash-can text-danger"></i> </td>
          </tr>
        @endforeach
-        
+      
      
       </tbody>
     </table>

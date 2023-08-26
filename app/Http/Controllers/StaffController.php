@@ -15,6 +15,11 @@ class StaffController extends Controller
     public function addStaff(){
         return view('add_staff');
     }
+    public function staffDashboard(){
+        $staff= DB::select("select * from staff");
+        return view('staffDashboard', compact('staff'));
+    }
+
 
     public function Handle_addStaff (Request $request){
         $fname=$request->fname;
@@ -90,10 +95,8 @@ class StaffController extends Controller
         DB::insert("insert into staff (fname, lname, address, national_id, email,phone, code, shift_time, sallary,staff_type, additional_info) 
         values (?,?,?,?,?,?,?,?,?,?,?)",[$fname,$lname,$address,$national_id, $email, $phone, $code, $shift_time, $sallary,$staff_type,$additional_info]);
 
-        return redirect(route('dashboard')); 
+        return redirect(route('staffDashboard')); 
 
-
-        
     }
 
     public function UpdateStaff($id){
@@ -120,12 +123,14 @@ class StaffController extends Controller
         DB::update("update staff set fname=? , lname=?, address=?, national_id=? ,email=? ,phone=? ,code=? ,shift_time=? ,sallary=?, specialty=? ,additional_info=? where id=?",
         [$fname,$lname,$address,$national_id,$email,$phone,$code,$shift_time, $sallary,$specialty,$additional_info , $id]);
 
-        return redirect(route('dashboard', ['id'=>$id]));
+        return redirect(route('staffDashboard', ['id'=>$id]));
 
        
     }
     public function dashboard()
     {
-        return view('dashboard');
+        $patients= DB::select("select * from patients");
+        return view('dashboard', ['patients'=>$patients]);
+       
     }
 }

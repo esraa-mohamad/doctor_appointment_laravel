@@ -8,31 +8,38 @@
    
 
     <div class="container">
+      <button type="button" id="btt" class="btn btn-info"> <a class="text-white"
+        @class([Route::is('Add_service')])aria-current="page" href="{{route('Add_service')}}">ADD Service+ </a
+        > </button>
     <table class="table">
       <thead>
         <tr>
           <th scope="col">id</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">phone</th>
-          <th scope="col">national id</th>
-          <th scope="col">email</th>
+          <th scope="col">Service Name</th>
+          <th scope="col">Service Code</th>
+          <th scope="col">Service Type</th>
+          <th scope="col">cost</th>
+          <th scope="col">additional info</th>
+          <th scope="col">update</th>
           <th scope="col">delete</th>
         </tr>
       </thead>
       <tbody>
-         @foreach ($patients as $patient)
+        @foreach ($services as $services)
         <tr>
-        <td>{{ $patient->id }}</td>
-         <td>{{ $patient->fname }}</td>
-         <td>{{ $patient->lname }}</td>
-         <td>{{ $patient->phone }}</td>
-         <td>{{ $patient->national_id }}</td>
-         <td>{{ $patient->email }}</td>
+        <td>{{ $services->id }}</td>
+         <td>{{ $services->service_name }}</td>
+         <td>{{ $services->service_code }}</td>
+         <td>{{ $services->service_type }}</td>
+         <td>{{ $services->cost }}</td>
+         <td>{{ $services->additional_info }}</td>
+         <td><a class="text-white"
+          @class([Route::is('Update_Service')])aria-current="page" href="{{route('Update_Service',['id'=>$services->id])}}"><i class="fas fa-pen-to-square text-info"></i></a
+          ></td>
          <td> <i class="far fa-trash-can text-danger"></i> </td>
          </tr>
        @endforeach
-        
+  
      
       </tbody>
     </table>

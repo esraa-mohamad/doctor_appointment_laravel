@@ -124,7 +124,9 @@
     @enderror
 
       <!-- Submit button -->
-      <input type="submit" class="btn btn-primary btn-block mb-4" style="font-family: 'Cormorant Garamond'; font-size: 15px;" name="add_staff" value="ADD"></input>
+      <input type="submit" class="btn btn-primary btn-block mb-4" style="font-family: 'Cormorant Garamond'; font-size: 15px;" name="add_staff" value="ADD">
+      
+    </input>
     </form>
   </div>
 

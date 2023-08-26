@@ -11,6 +11,10 @@ class DoctorController extends Controller
     public function Doctors(){
         return view('doctors');
     }
+    public function doctorDashboard(){
+        $doctors= DB::select("select * from doctors");
+        return view('doctorDashboard', compact('doctors'));
+    }
     public function Add_Doctor(){
         return view('add_doctor');
     }
@@ -100,7 +104,7 @@ class DoctorController extends Controller
         DB::insert("insert into doctors (fname, lname, address, national_id, email,phone, code, shift_time, sallary, additional_info,specialty,image) 
         values (?,?,?,?,?,?,?,?,?,?,?,?)",[$fname,$lname,$address,$national_id, $email, $phone, $code, $shift_time, $sallary,$additional_info,$specialty,$image]);
 
-        return redirect(route('dashboard'));
+        return redirect(route('doctorDashboard'));
 
         
     }
@@ -136,7 +140,7 @@ class DoctorController extends Controller
         DB::update("update doctors set fname=? , lname=?, address=?, national_id=? ,email=? ,phone=? ,code=? ,shift_time=? ,sallary=?, specialty=? ,additional_info=?,image=? where id=?",
         [$fname,$lname,$address,$national_id,$email,$phone,$code,$shift_time, $sallary,$specialty,$additional_info ,$image, $id]);
 
-        return redirect(route('dashboard', ['id'=>$id]));
+        return redirect(route('doctorDashboard', ['id'=>$id]));
 
        
     }
