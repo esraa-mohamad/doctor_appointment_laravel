@@ -24,7 +24,18 @@ class ServiceController extends Controller
         $service_type=$request->service_type;
         $cost=$request->cost;
         $additional_info= $request->additional_info;
-      
+        if($request->hasFile('image'))
+        {
+            $file=$request->file('image');
+            $extensio=$file->getClientOriginalExtension();
+            $file_name= time().'.'.$extensio;
+            $file->move('img/services/',$file_name);
+            $image=$file_name;
+        }
+        else{
+            return $request;
+            $image='';
+        }
 
         $validator = Validator::make($request->all(), [
             'service_name' => 'required|string|min:3|regex:/^[a-zA-Z-\' ]*$/',
@@ -40,9 +51,9 @@ class ServiceController extends Controller
             'service_name.regex' => 'Service name can only contain letters, hyphens, and spaces',
     
 
-            'code.required' => 'Code is required',
-            'code.digits' => 'Invalid code number. Please enter a 4-digit code number.',
-            'code.unique' => 'Code already exists',
+            'service_code.required' => 'Code is required',
+            'service_code.digits' => 'Invalid code number. Please enter a 4-digit code number.',
+            'service_code.unique' => 'Code already exists',
 
 
             'service_type.required' => 'service_type is required',
@@ -57,8 +68,8 @@ class ServiceController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        DB::insert("insert into services (service_name, service_code,  service_type, cost, additional_info) 
-        values (?,?,?,?,?)",[ $service_name, $service_code, $service_type,$cost,$additional_info]);
+        DB::insert("insert into services (service_name, service_code,  service_type, cost, additional_info,image) 
+        values (?,?,?,?,?,?)",[ $service_name, $service_code, $service_type,$cost,$additional_info,$image]);
 
         return redirect(route('dashboard')); 
 
@@ -66,8 +77,24 @@ class ServiceController extends Controller
         
     }
 
-    public function update_service(){
-        return "service updated";
+    public function Update_Service($id){
+        $service =DB::select("select * from services where id=?",[$id])[0];
+        return view('update_service', compact('service'));
+    }
+
+    public function Handle_Update_Service(Request $request, $id){
+        $service_name=$request->service_name;
+        $service_code=$request->service_code;
+        $service_type=$request->service_type;
+        $cost=$request->cost;
+        $additional_info= $request->additional_info;
+
+        DB::update("update services set service_name=? , service_code=?, service_type=?, cost=? ,additional_info=? where id=?",
+        [$service_name,$service_code,$service_type,$cost, $additional_info,$id]);
+
+        return redirect(route('dashboard', ['id'=>$id]));
+
+       
     }
     public function delete_service(){
         return "service deleted";
