@@ -7,7 +7,7 @@
     <h1 class="text-center form mb-5" style="text-shadow: 2px 4px 4px rgba(46,91,173,0.6);">Add Doctor</h1>
 
     <!-- form -->
-    <form method="post" action="{{route('Handle_Add_Doctor')}}" >
+    <form method="post" action="{{route('Handle_Add_Doctor')}}" enctype="multipart/form-data">
       <!-- 2 column grid layout with text inputs for the first and last names -->
       @csrf
       <div class="row mb-2" style="font-family: 'Cormorant Garamond', serif; ">
@@ -88,6 +88,15 @@
       <div class="text-danger">{{ $message }}</div>
     @enderror
 
+     <!-- Specialty -->
+     <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+      <input type="text" id="form6Example8" name="specialty" value="{{ old('specialty') }}" class="form-control" />
+      <label class="form-label" for="form6Example8">Specialty</label>
+     
+    </div>
+    @error('specialty')
+    <div class="text-danger">{{ $message }}</div>
+  @enderror
       <!-- shift time -->
       <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
         <input type="text" id="form6Example8" name="shift_time" value="{{ old('shift_time') }}" class="form-control" />
@@ -107,6 +116,13 @@
       @error('sallary')
       <div class="text-danger">{{ $message }}</div>
     @enderror
+    <!-- Image -->
+    <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+      <input type="file" id="form6Example8" name="image"  class="form-control" />
+      <label class="form-label" for="form6Example8">Image</label>
+     
+    </div>
+
 
       <!-- Additional information  -->
       <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">

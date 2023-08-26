@@ -33,14 +33,14 @@ class StaffController extends Controller
             'fname' => 'required|string|min:3|regex:/^[a-zA-Z-\' ]*$/',
             'lname' => 'required|string|min:3|regex:/^[a-zA-Z-\' ]*$/',
             'phone' => 'required|digits:11',
-            'code' => 'required|digits:4|unique:doctors,code',
-            'email' => 'required|email|unique:doctors,email',
-            'national_id' => 'required|digits:14|unique:doctors,national_id',
+            'code' => 'required|digits:4|unique:staff,code',
+            'email' => 'required|email|unique:staff,email',
+            'national_id' => 'required|digits:14|unique:staff,national_id',
             'sallary' => 'required',
             'additional_info' => 'required',
             'address' => 'required',
             'shift_time' => 'required',
-            'staff_type' => 'required|in:doctor,nurse'
+            'staff_type' => 'required|in:receptionest,nurse'
             
 
         ], [

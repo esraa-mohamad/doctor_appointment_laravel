@@ -107,7 +107,7 @@
 
       <select name="staff_type" id="form3Example3" class="form-control">
         <option value="{{ old('staff_type') }}" selected disabled >select staff category</option>
-        <option value="doctor" {{ old('staff_type') == 'doctor' ? 'selected' : '' }}>Doctor</option>
+        <option value="receptionest" {{ old('staff_type') == 'receptionest' ? 'selected' : '' }}>Doctor</option>
         <option value="nurse" {{ old('staff_type') == 'nurse' ? 'selected' : '' }}>Nurse</option>
     </select>
     @error('staff_type')
