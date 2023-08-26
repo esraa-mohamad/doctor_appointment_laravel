@@ -28,7 +28,6 @@ Route::get('/receptionest', [StaffController::class, 'staff_login'])->name('staf
 Route::get('/dashboard', [StaffController::class, 'dashboard'])->name('dashboard');
 Route::get('/staffDashboard', [StaffController::class, 'staffDashboard'])->name('staffDashboard');
 
-
 Route::get('/doctors', [DoctorController::class, 'Doctors'])->name('Doctors');
 
 Route::get('/addDoctor', [DoctorController::class, 'Add_Doctor'])->name('Add_Doctor');

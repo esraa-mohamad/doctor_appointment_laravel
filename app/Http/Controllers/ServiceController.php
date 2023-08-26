@@ -12,7 +12,8 @@ class ServiceController extends Controller
         return view('services');
     }
     public function serviceDashboard(){
-        return view('serviceDashboard');
+        $services= DB::select("select * from services");
+        return view('serviceDashboard', compact('services'));
     }
     public function Add_service(){
         return view('add_service');
@@ -71,8 +72,7 @@ class ServiceController extends Controller
         DB::insert("insert into services (service_name, service_code,  service_type, cost, additional_info,image) 
         values (?,?,?,?,?,?)",[ $service_name, $service_code, $service_type,$cost,$additional_info,$image]);
 
-        return redirect(route('dashboard')); 
-
+        return redirect(route('serviceDashboard')); 
        
         
     }
@@ -92,7 +92,7 @@ class ServiceController extends Controller
         DB::update("update services set service_name=? , service_code=?, service_type=?, cost=? ,additional_info=? where id=?",
         [$service_name,$service_code,$service_type,$cost, $additional_info,$id]);
 
-        return redirect(route('dashboard', ['id'=>$id]));
+        return redirect(route('serviceDashboard', ['id'=>$id]));
 
        
     }

@@ -17,37 +17,22 @@
           <th scope="col">phone</th>
           <th scope="col">national id</th>
           <th scope="col">email</th>
-          <th scope="col">password</th>
-          <th scope="col">image</th>
-          <th scope="col">update</th>
           <th scope="col">delete</th>
         </tr>
       </thead>
       <tbody>
+         @foreach ($patients as $patient)
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Mark</td>
-          <td><i class="fas fa-pen-to-square text-info"></i></td>
-          <td> <i class="far fa-trash-can text-danger"></i> </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Jacob</td>
-          <td><i class="fas fa-pen-to-square text-info"></i></td>
-          <td> <i class="far fa-trash-can text-danger"></i> </td>
-        </tr>
+        <td>{{ $patient->id }}</td>
+         <td>{{ $patient->fname }}</td>
+         <td>{{ $patient->lname }}</td>
+         <td>{{ $patient->phone }}</td>
+         <td>{{ $patient->national_id }}</td>
+         <td>{{ $patient->email }}</td>
+         <td> <i class="far fa-trash-can text-danger"></i> </td>
+         </tr>
+       @endforeach
+        
      
       </tbody>
     </table>

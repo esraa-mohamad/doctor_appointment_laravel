@@ -30,38 +30,26 @@
         </tr>
       </thead>
       <tbody>
+        @foreach ($doctors as $doctors)
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Mark</td>
-          <td>@mdo</td>
-          <td>Mark</td>
-          <td>Mark</td>
-          <td>Mark</td>
-          <td><i class="fas fa-pen-to-square text-info"></i></td>
-          <td> <i class="far fa-trash-can text-danger"></i> </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Jacob</td>
-          <td>@fat</td>
-          <td>@fat</td>
-          <td>@fat</td>
-          <td>Jacob</td>
-          <td><i class="fas fa-pen-to-square text-info"></i></td>
-          <td> <i class="far fa-trash-can text-danger"></i> </td>
-        </tr>
+        <td>{{ $doctors->id }}</td>
+         <td>{{ $doctors->fname }}</td>
+         <td>{{ $doctors->lname }}</td>
+         <td>{{ $doctors->address }}</td>
+         <td>{{ $doctors->national_id }}</td>
+         <td>{{ $doctors->email }}</td>
+         <td>{{ $doctors->phone }}</td>
+         <td>{{ $doctors->code }}</td>
+         <td>{{ $doctors->shift_time }}</td>
+         <td>{{ $doctors->sallary }}</td>
+         <td>{{ $doctors->additional_info }}</td>
+         <td>{{ $doctors->specialty }}</td>
+         <td><a class="text-white"
+          @class([Route::is('Update_Doctor')])aria-current="page" href="{{route('Update_Doctor',['id'=>$doctors->id])}}"><i class="fas fa-pen-to-square text-info"></i></a
+          ></td>
+         <td> <i class="far fa-trash-can text-danger"></i> </td>
+         </tr>
+       @endforeach
      
       </tbody>
     </table>

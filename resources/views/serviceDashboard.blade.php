@@ -20,36 +20,26 @@
           <th scope="col">Service Type</th>
           <th scope="col">cost</th>
           <th scope="col">additional info</th>
-          <th scope="col">image</th>
           <th scope="col">update</th>
           <th scope="col">delete</th>
         </tr>
       </thead>
       <tbody>
+        @foreach ($services as $services)
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-         
-          <td><i class="fas fa-pen-to-square text-info"></i></td>
-          <td> <i class="far fa-trash-can text-danger"></i> </td>
-        </tr>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-           
-            <td><i class="fas fa-pen-to-square text-info"></i></td>
-            <td> <i class="far fa-trash-can text-danger"></i> </td>
-          </tr>
+        <td>{{ $services->id }}</td>
+         <td>{{ $services->service_name }}</td>
+         <td>{{ $services->service_code }}</td>
+         <td>{{ $services->service_type }}</td>
+         <td>{{ $services->cost }}</td>
+         <td>{{ $services->additional_info }}</td>
+         <td><a class="text-white"
+          @class([Route::is('Update_Service')])aria-current="page" href="{{route('Update_Service',['id'=>$services->id])}}"><i class="fas fa-pen-to-square text-info"></i></a
+          ></td>
+         <td> <i class="far fa-trash-can text-danger"></i> </td>
+         </tr>
+       @endforeach
+  
      
       </tbody>
     </table>
