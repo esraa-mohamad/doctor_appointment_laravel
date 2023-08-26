@@ -22,9 +22,11 @@ Route::get('/services', [ServiceController::class, 'services'])->name('services'
 
 Route::get('/addService', [ServiceController::class, 'Add_service'])->name('Add_service');
 Route::post('/addService', [ServiceController::class, 'Handle_Add_service'])->name('Handle_Add_service');
+Route::get('/serviceDashboard', [ServiceController::class, 'serviceDashboard'])->name('serviceDashboard');
 
 Route::get('/receptionest', [StaffController::class, 'staff_login'])->name('staff_login');
 Route::get('/dashboard', [StaffController::class, 'dashboard'])->name('dashboard');
+Route::get('/staffDashboard', [StaffController::class, 'staffDashboard'])->name('staffDashboard');
 
 Route::get('/add_staff', [StaffController::class, 'addStaff'])->name('addStaff');
 Route::post('/add_staff', [StaffController::class, 'Handle_addStaff'])->name('Handle_addStaff');
@@ -32,4 +34,5 @@ Route::post('/add_staff', [StaffController::class, 'Handle_addStaff'])->name('Ha
 Route::get('/doctors', [DoctorController::class, 'Doctors'])->name('Doctors');
 
 Route::get('/addDoctor', [DoctorController::class, 'Add_Doctor'])->name('Add_Doctor');
+Route::get('/doctorDashboard', [DoctorController::class, 'doctorDashboard'])->name('doctorDashboard');
 Route::post('/handleDoctor', [DoctorController::class, 'Handle_Add_Doctor'])->name('Handle_Add_Doctor');

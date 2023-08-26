@@ -11,6 +11,9 @@ class DoctorController extends Controller
     public function Doctors(){
         return view('doctors');
     }
+    public function doctorDashboard(){
+        return view('doctorDashboard');
+    }
     public function Add_Doctor(){
         return view('add_doctor');
     }

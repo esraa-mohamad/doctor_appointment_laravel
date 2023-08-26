@@ -8,16 +8,18 @@
    
 
     <div class="container">
+      <button type="button" id="btt" class="btn btn-info"> <a class="text-white"
+        @class([Route::is('Add_service')])aria-current="page" href="{{route('Add_service')}}">ADD Service+ </a
+        > </button>
     <table class="table">
       <thead>
         <tr>
           <th scope="col">id</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">phone</th>
-          <th scope="col">national id</th>
-          <th scope="col">email</th>
-          <th scope="col">password</th>
+          <th scope="col">Service Name</th>
+          <th scope="col">Service Code</th>
+          <th scope="col">Service Type</th>
+          <th scope="col">cost</th>
+          <th scope="col">additional info</th>
           <th scope="col">image</th>
           <th scope="col">update</th>
           <th scope="col">delete</th>
@@ -32,22 +34,22 @@
           <td>Mark</td>
           <td>Otto</td>
           <td>@mdo</td>
-          <td>Mark</td>
+         
           <td><i class="fas fa-pen-to-square text-info"></i></td>
           <td> <i class="far fa-trash-can text-danger"></i> </td>
         </tr>
         <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Jacob</td>
-          <td><i class="fas fa-pen-to-square text-info"></i></td>
-          <td> <i class="far fa-trash-can text-danger"></i> </td>
-        </tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+           
+            <td><i class="fas fa-pen-to-square text-info"></i></td>
+            <td> <i class="far fa-trash-can text-danger"></i> </td>
+          </tr>
      
       </tbody>
     </table>

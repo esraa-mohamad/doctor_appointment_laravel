@@ -11,6 +11,9 @@ class ServiceController extends Controller
     public function services(){
         return view('services');
     }
+    public function serviceDashboard(){
+        return view('serviceDashboard');
+    }
     public function Add_service(){
         return view('add_service');
     }

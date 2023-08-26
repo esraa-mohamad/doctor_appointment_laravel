@@ -15,6 +15,10 @@ class StaffController extends Controller
     public function addStaff(){
         return view('add_staff');
     }
+    public function staffDashboard(){
+        return view('staffDashboard');
+    }
+
 
     public function Handle_addStaff (Request $request){
         $fname=$request->fname;
