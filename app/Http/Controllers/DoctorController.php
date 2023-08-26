@@ -111,7 +111,7 @@ class DoctorController extends Controller
 
     public function update_Doctor($id){
         $doctor =DB::select("select * from doctors where id=?",[$id])[0];
-        return view('Update_Doctor', compact('doctor'));
+        return view('update_doctor', compact('doctor'));
     }
 
     public function Handle_Update_Doctor(Request $request, $id){
@@ -124,17 +124,30 @@ class DoctorController extends Controller
         $code=$request->code;
         $shift_time=$request->shift_time;
         $sallary=$request->sallary;
+        $specialty=$request->specialty;
         $additional_info=$request->additional_info;
+        if($request->hasFile('image'))
+        {
+            $file=$request->file('image');
+            $extensio=$file->getClientOriginalExtension();
+            $file_name= time().'.'.$extensio;
+            $file->move('img/doctors/',$file_name);
+            $image=$file_name;
+        }
+       
 
-        DB::update("update doctors set fname=? , lname=?, address=?, national_id=? ,email=? ,phone=? ,code=? ,shift_time=? ,sallary=? ,additional_info=? where id=?",
-        [$fname,$lname,$address,$national_id,$email,$phone,$code,$shift_time, $sallary,$additional_info , $id]);
+
+        DB::update("update doctors set fname=? , lname=?, address=?, national_id=? ,email=? ,phone=? ,code=? ,shift_time=? ,sallary=?, specialty=? ,additional_info=?,image=? where id=?",
+        [$fname,$lname,$address,$national_id,$email,$phone,$code,$shift_time, $sallary,$specialty,$additional_info ,$image, $id]);
 
         return redirect(route('doctorDashboard', ['id'=>$id]));
 
        
     }
 
-    public function delete_Doctor(){
-        return "doctor deleted";
+
+    public function Delete_Doctor($id){
+        DB::delete("delete from doctors where id =?",[$id]);
+        return redirect(route('dashboard'));    
     } 
 }

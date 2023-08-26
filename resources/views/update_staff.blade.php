@@ -72,7 +72,8 @@
         <label class="form-label" for="form6Example7">code</label>
        
       </div>
-     
+
+    
 
       <!-- shift time -->
       <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
@@ -88,8 +89,15 @@
         <label class="form-label" for="form6Example9">Salary</label>
        
       </div>
-      
 
+      <!-- Specialty -->
+      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+        <input type="text" id="form6Example8" name="specialty" value="{{$staff->specialty}}" class="form-control" />
+        <label class="form-label" for="form6Example8">Specialty</label>
+      
+      </div>
+      
+      
       <!-- Additional information  -->
       <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
         <textarea class="form-control" id="form6Example10" name="additional_info" value="{{$staff->additional_info}}" rows="4"></textarea>

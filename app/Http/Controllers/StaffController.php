@@ -100,9 +100,8 @@ class StaffController extends Controller
     }
 
     public function UpdateStaff($id){
-        $staff =DB::select("select * from staff where id=?",[$id])[0];
+        $staff =DB::select("select * from doctors where id=?",[$id])[0];
         return view('update_staff', compact('staff'));
-      
     }
 
     public function HandleUpdateStaff(Request $request, $id){
@@ -115,10 +114,14 @@ class StaffController extends Controller
         $code=$request->code;
         $shift_time=$request->shift_time;
         $sallary=$request->sallary;
+        $specialty=$request->specialty;
         $additional_info=$request->additional_info;
+       
+       
 
-        DB::update("update staff set fname=? , lname=?, address=?, national_id=? ,email=? ,phone=? ,code=? ,shift_time=? ,sallary=? ,additional_info=? where id=?",
-        [$fname,$lname,$address,$national_id,$email,$phone,$code,$shift_time, $sallary,$additional_info , $id]);
+
+        DB::update("update staff set fname=? , lname=?, address=?, national_id=? ,email=? ,phone=? ,code=? ,shift_time=? ,sallary=?, specialty=? ,additional_info=? where id=?",
+        [$fname,$lname,$address,$national_id,$email,$phone,$code,$shift_time, $sallary,$specialty,$additional_info , $id]);
 
         return redirect(route('staffDashboard', ['id'=>$id]));
 
