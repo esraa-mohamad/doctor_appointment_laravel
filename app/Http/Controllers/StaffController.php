@@ -96,6 +96,33 @@ class StaffController extends Controller
         
     }
 
+    public function UpdateStaff($id){
+        $staff =DB::select("select * from staff where id=?",[$id])[0];
+        return view('update_staff', compact('staff'));
+      
+    }
+
+    public function HandleUpdateStaff(Request $request, $id){
+        $fname=$request->fname;
+        $lname=$request->lname;
+        $address=$request->address;
+        $national_id=$request->national_id;
+        $email=$request->email;
+        $phone=$request->phone;
+        $code=$request->code;
+        $shift_time=$request->shift_time;
+        $sallary=$request->sallary;
+        $additional_info=$request->additional_info;
+
+        DB::update("update staff set fname=? , lname=?, address=?, national_id=? ,email=? ,phone=? ,code=? ,shift_time=? ,sallary=? ,additional_info=? where id=?",
+        [$fname,$lname,$address,$national_id,$email,$phone,$code,$shift_time, $sallary,$additional_info , $id]);
+
+        return redirect(route('dashboard', ['id'=>$id]));
+
+       
+    }
+
+
     public function dashboard()
     {
         return view('dashboard');

@@ -89,9 +89,32 @@ class DoctorController extends Controller
         
     }
 
-    public function update_Doctor(){
-        return "doctor updated";
+    public function update_Doctor($id){
+        $doctor =DB::select("select * from doctors where id=?",[$id])[0];
+        return view('Update_Doctor', compact('doctor'));
     }
+
+    public function Handle_Update_Doctor(Request $request, $id){
+        $fname=$request->fname;
+        $lname=$request->lname;
+        $address=$request->address;
+        $national_id=$request->national_id;
+        $email=$request->email;
+        $phone=$request->phone;
+        $code=$request->code;
+        $shift_time=$request->shift_time;
+        $sallary=$request->sallary;
+        $additional_info=$request->additional_info;
+
+        DB::update("update doctors set fname=? , lname=?, address=?, national_id=? ,email=? ,phone=? ,code=? ,shift_time=? ,sallary=? ,additional_info=? where id=?",
+        [$fname,$lname,$address,$national_id,$email,$phone,$code,$shift_time, $sallary,$additional_info , $id]);
+
+        return redirect(route('dashboard', ['id'=>$id]));
+
+       
+    }
+
+
     public function delete_Doctor(){
         return "doctor deleted";
     } 

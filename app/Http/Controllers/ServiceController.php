@@ -63,8 +63,24 @@ class ServiceController extends Controller
         
     }
 
-    public function update_service(){
-        return "service updated";
+    public function Update_Service($id){
+        $service =DB::select("select * from services where id=?",[$id])[0];
+        return view('update_service', compact('service'));
+    }
+
+    public function Handle_Update_Service(Request $request, $id){
+        $service_name=$request->service_name;
+        $service_code=$request->service_code;
+        $service_type=$request->service_type;
+        $cost=$request->cost;
+        $additional_info= $request->additional_info;
+
+        DB::update("update services set service_name=? , service_code=?, service_type=?, cost=? ,additional_info=? where id=?",
+        [$service_name,$service_code,$service_type,$cost, $additional_info,$id]);
+
+        return redirect(route('dashboard', ['id'=>$id]));
+
+       
     }
     public function delete_service(){
         return "service deleted";

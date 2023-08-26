@@ -20,16 +20,27 @@ Route::get('/booking', [AppointmentController::class, 'booking'])->name('booking
 Route::get('/admin', [AdminController::class, 'login_Admin'])->name('login_Admin');
 Route::get('/services', [ServiceController::class, 'services'])->name('services');
 
-Route::get('/addService', [ServiceController::class, 'Add_service'])->name('Add_service');
-Route::post('/addService', [ServiceController::class, 'Handle_Add_service'])->name('Handle_Add_service');
 
 Route::get('/receptionest', [StaffController::class, 'staff_login'])->name('staff_login');
 Route::get('/dashboard', [StaffController::class, 'dashboard'])->name('dashboard');
 
-Route::get('/add_staff', [StaffController::class, 'addStaff'])->name('addStaff');
-Route::post('/add_staff', [StaffController::class, 'Handle_addStaff'])->name('Handle_addStaff');
 
 Route::get('/doctors', [DoctorController::class, 'Doctors'])->name('Doctors');
 
 Route::get('/addDoctor', [DoctorController::class, 'Add_Doctor'])->name('Add_Doctor');
 Route::post('/handleDoctor', [DoctorController::class, 'Handle_Add_Doctor'])->name('Handle_Add_Doctor');
+
+Route::get('/updateDoctor/{id}', [DoctorController::class, 'Update_Doctor'])->name('Update_Doctor');
+Route::post('/updateDoctor/{id}', [DoctorController::class, 'Handle_Update_Doctor'])->name('Handle_Update_Doctor');
+
+Route::get('/add_staff', [StaffController::class, 'addStaff'])->name('addStaff');
+Route::post('/add_staff', [StaffController::class, 'Handle_addStaff'])->name('Handle_addStaff');
+
+Route::get('/updateStaff/{id}', [StaffController::class, 'UpdateStaff'])->name('UpdateStaff');
+Route::post('/updateStaff/{id}', [StaffController::class, 'HandleUpdateStaff'])->name('HandleUpdateStaff');
+
+Route::get('/addService', [ServiceController::class, 'Add_service'])->name('Add_service');
+Route::post('/addService', [ServiceController::class, 'Handle_Add_service'])->name('Handle_Add_service');
+
+Route::get('/updateService/{id}', [ServiceController::class, 'Update_Service'])->name('Update_Service');
+Route::post('/updateService/{id}', [ServiceController::class, 'Handle_Update_Service'])->name('Handle_Update_Service');
