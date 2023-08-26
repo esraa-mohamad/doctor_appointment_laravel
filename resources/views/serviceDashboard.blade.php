@@ -36,7 +36,11 @@
          <td><a class="text-white"
           @class([Route::is('Update_Service')])aria-current="page" href="{{route('Update_Service',['id'=>$services->id])}}"><i class="fas fa-pen-to-square text-info"></i></a
           ></td>
-         <td> <i class="far fa-trash-can text-danger"></i> </td>
+         <td>  
+          <form method="post" action="{{route('Delete_Service',['id'=>$services->id])}}">
+          @csrf
+          <input type="submit" class="btn btn-danger" value="delete">
+        </form></td>
          </tr>
        @endforeach
   
