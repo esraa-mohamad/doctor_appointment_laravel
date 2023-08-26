@@ -25,7 +25,20 @@ class DoctorController extends Controller
         $code=$request->code;
         $shift_time=$request->shift_time;
         $sallary=$request->sallary;
+        $specialty=$request->specialty;
         $additional_info=$request->additional_info;
+        if($request->hasFile('image'))
+        {
+            $file=$request->file('image');
+            $extensio=$file->getClientOriginalExtension();
+            $file_name= time().'.'.$extensio;
+            $file->move('img/doctors/',$file_name);
+            $image=$file_name;
+        }
+        else{
+            return $request;
+            $image='';
+        }
 
         $validator = Validator::make($request->all(), [
             'fname' => 'required|string|min:3|regex:/^[a-zA-Z-\' ]*$/',
@@ -38,6 +51,7 @@ class DoctorController extends Controller
             'additional_info' => 'required',
             'address' => 'required',
             'shift_time' => 'required',
+            'specialty' => 'required',
 
         ], [
             'fname.required' => 'First name is required',
@@ -73,6 +87,8 @@ class DoctorController extends Controller
             'sallary.required' => 'sallary is required',
 
             'shift_time.required'  => 'shift_time is required',
+
+            'specilty.required'  => 'Specialty is required',
            
  
         ]);
@@ -81,8 +97,8 @@ class DoctorController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        DB::insert("insert into doctors (fname, lname, address, national_id, email,phone, code, shift_time, sallary, additional_info) 
-        values (?,?,?,?,?,?,?,?,?,?)",[$fname,$lname,$address,$national_id, $email, $phone, $code, $shift_time, $sallary,$additional_info]);
+        DB::insert("insert into doctors (fname, lname, address, national_id, email,phone, code, shift_time, sallary, additional_info,specialty,image) 
+        values (?,?,?,?,?,?,?,?,?,?,?,?)",[$fname,$lname,$address,$national_id, $email, $phone, $code, $shift_time, $sallary,$additional_info,$specialty,$image]);
 
         return redirect(route('dashboard'));
 

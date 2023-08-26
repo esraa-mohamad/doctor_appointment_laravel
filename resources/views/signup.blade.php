@@ -28,7 +28,7 @@
               <div class="card-body p-5 shadow-5 text-center">
                 <h2 class="fw-bold mb-5" style="text-shadow: 2px 4px 4px rgba(46,91,173,0.6);">Sign up </h2>
                 <!-- form -->
-                <form method="post" action="{{route('Handle_signup')}}">
+                <form method="post" action="{{route('Handle_signup')}}" enctype="multipart/form-data">
                   @csrf
                   <!-- 2 column grid layout with text inputs for the first and last names -->
                   <div class="row mb-4" style="font-family: 'Cormorant Garamond', serif; ">
@@ -89,7 +89,11 @@
                   @error('email')
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
-
+<!-- Image -->
+<div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+  <input type="file" id="form6Example6" name="image" value="{{ old('image') }}" class="form-control" />
+  <label class="form-label" for="form6Example6">Image</label>
+</div>
                   <!-- Password input -->
                   <div class="form-outline mb-4" style="font-family: 'Cormorant Garamond', serif; ">
                     <input type="password" id="form3Example4" class="form-control" name="password" value="{{ old('password') }}" />

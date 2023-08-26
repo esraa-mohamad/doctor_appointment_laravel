@@ -28,8 +28,18 @@ class PatientController extends Controller
         $email=$request->email;
         $password=$request->password;
         $confirm=$request->confirm;
-       
-
+        if($request->hasFile('image'))
+        {
+            $file=$request->file('image');
+            $extensio=$file->getClientOriginalExtension();
+            $file_name= time().'.'.$extensio;
+            $file->move('img/patients/',$file_name);
+            $image=$file_name;
+        }
+        else{
+            return $request;
+            $image='';
+        }
 
         $validator = Validator::make($request->all(), [
             'fname' => 'required|string|min:3|regex:/^[a-zA-Z-\' ]*$/',
@@ -66,13 +76,14 @@ class PatientController extends Controller
     
             'confirm.required' => 'Confirm Password is required',
             'confirm.same' => 'Confirm Password does not match with password',
+
         ]);
     
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         } 
-        DB::insert("insert into patients (fname, lname, phone, national_id, email,password) 
-        values (?,?,?,?,?,?)",[$fname,$lname,$phone,$national_id, $email, $password]);
+        DB::insert("insert into patients (fname, lname, phone, national_id, email,password,image) 
+        values (?,?,?,?,?,?,?)",[$fname,$lname,$phone,$national_id, $email, $password,$image]);
 
         return redirect(route('login'));
     

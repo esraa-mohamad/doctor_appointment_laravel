@@ -21,7 +21,18 @@ class ServiceController extends Controller
         $service_type=$request->service_type;
         $cost=$request->cost;
         $additional_info= $request->additional_info;
-      
+        if($request->hasFile('image'))
+        {
+            $file=$request->file('image');
+            $extensio=$file->getClientOriginalExtension();
+            $file_name= time().'.'.$extensio;
+            $file->move('img/services/',$file_name);
+            $image=$file_name;
+        }
+        else{
+            return $request;
+            $image='';
+        }
 
         $validator = Validator::make($request->all(), [
             'service_name' => 'required|string|min:3|regex:/^[a-zA-Z-\' ]*$/',
@@ -37,9 +48,9 @@ class ServiceController extends Controller
             'service_name.regex' => 'Service name can only contain letters, hyphens, and spaces',
     
 
-            'code.required' => 'Code is required',
-            'code.digits' => 'Invalid code number. Please enter a 4-digit code number.',
-            'code.unique' => 'Code already exists',
+            'service_code.required' => 'Code is required',
+            'service_code.digits' => 'Invalid code number. Please enter a 4-digit code number.',
+            'service_code.unique' => 'Code already exists',
 
 
             'service_type.required' => 'service_type is required',
@@ -54,8 +65,8 @@ class ServiceController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        DB::insert("insert into services (service_name, service_code,  service_type, cost, additional_info) 
-        values (?,?,?,?,?)",[ $service_name, $service_code, $service_type,$cost,$additional_info]);
+        DB::insert("insert into services (service_name, service_code,  service_type, cost, additional_info,image) 
+        values (?,?,?,?,?,?)",[ $service_name, $service_code, $service_type,$cost,$additional_info,$image]);
 
         return redirect(route('dashboard')); 
 
