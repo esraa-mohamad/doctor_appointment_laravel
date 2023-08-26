@@ -6,7 +6,7 @@
     <h1 class="text-center form mb-5" style="text-shadow: 2px 4px 4px rgba(46,91,173,0.6);">Update Service</h1>
 
     <!-- form -->
-    <form action="{{route('Handle_Update_Service',['id'=>$service->id])}}" method="post">
+    <form action="{{route('Handle_Update_Service',['id'=>$service->id])}}" method="post" enctype="multipart/form-data">
       <!-- 2 column grid layout with text inputs for the first and last names -->
       @csrf
      
@@ -40,7 +40,16 @@
         <label class="form-label" for="form6Example6">Cost</label>
       </div>
 
+    
+       <!-- Image -->
+       <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+    
+        <input type="file" id="form6Example8" name="image" value="{{$service->image}}"  class="form-control" />
+        <label class="form-label" for="form6Example8">Image</label>
      
+      </div>
+      
+        
 
 
       <!-- Additional information  -->

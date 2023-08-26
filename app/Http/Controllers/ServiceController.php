@@ -84,10 +84,19 @@ class ServiceController extends Controller
         $service_code=$request->service_code;
         $service_type=$request->service_type;
         $cost=$request->cost;
-        $additional_info= $request->additional_info;
 
-        DB::update("update services set service_name=? , service_code=?, service_type=?, cost=? ,additional_info=? where id=?",
-        [$service_name,$service_code,$service_type,$cost, $additional_info,$id]);
+        $additional_info= $request->additional_info;
+        if($request->hasFile('image'))
+        {
+            $file=$request->file('image');
+            $extensio=$file->getClientOriginalExtension();
+            $file_name= time().'.'.$extensio;
+            $file->move('img/doctors/',$file_name);
+            $image=$file_name;
+        }
+
+        DB::update("update services set service_name=? , service_code=?, service_type=?, cost=?,image=? ,additional_info=? where id=?",
+        [$service_name,$service_code,$service_type,$cost, $image, $additional_info ,$id]);
 
         return redirect(route('dashboard', ['id'=>$id]));
 
