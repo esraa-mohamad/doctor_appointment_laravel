@@ -27,27 +27,31 @@
               ">
             <div class="card-body p-5 shadow-5 text-center">
               <h2 class="fw-bold mb-5" style="text-shadow: 2px 4px 4px rgba(46,91,173,0.6);">Login</h2>
-              <form>
+              <form method="post" action="{{route('handleLoginPatient')}}">
+                @csrf
                 <!-- 2 column grid layout with text inputs for the first and last names -->
 
 
                 <!-- Email input -->
                 <div class="form-outline mb-4" style="font-family: 'Cormorant Garamond', serif; ">
-                  <input type="email" id="form3Example3" class="form-control" />
+                  <input type="email" id="form3Example3" name="email" class="form-control" value="{{old('email')}}"/>
                   <label class="form-label" for="form3Example3">Email address</label>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4" style="font-family: 'Cormorant Garamond', serif; ">
-                  <input type="password" id="form3Example4" class="form-control" />
+                  <input type="password" id="form3Example4" name="password" class="form-control" />
                   <label class="form-label" for="form3Example4">Password</label>
                 </div>
+                @if(session('error')) 
+                <span class="error">{{ session('error') }}</span> <br>
+                @endif
 
-
-                <!-- Submit button -->
+                <input type="submit" value="Login" class="btn btn-primary btn-block mb-4" style="font-family: 'Cormorant Garamond'">
+                {{-- <!-- Submit button -->
                 <button type="submit" class="btn btn-primary btn-block mb-4" style="font-family: 'Cormorant Garamond'">
                   Login
-                </button>
+                </button> --}}
 
                 <p style="font-weight: 700;  margin-bottom: 5px;">
                   <span style="font-family: 'Cormorant Garamond', serif; ">Don't have an account?</span>

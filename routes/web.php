@@ -9,16 +9,27 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
+
+    
 Route::get('/',[WelcomeController::class,'welcome'])->name('welcome');
-Route::get('/home', [PatientController::class, 'home'])->name('home');
-Route::get('/login', [PatientController::class, 'login'])->name('login');
 
-Route::get('/signup', [PatientController::class, 'signup'])->name('signup');
-Route::post('/signup', [PatientController::class, 'Handle_signup'])->name('Handle_signup'); 
+Route::group(['middleware'=>'mypatient'], function(){
+    Route::get('/home', [PatientController::class, 'home'])->name('home');
+    Route::get('/services', [ServiceController::class, 'services'])->name('services');
+    Route::get('/doctors', [DoctorController::class, 'Doctors'])->name('Doctors');
+    Route::get('/booking', [AppointmentController::class, 'booking'])->name('booking');
+    Route::get('/logout', [PatientController::class, 'handleLogoutPatient'])->name('handleLogoutPatient');
+});
 
-Route::get('/booking', [AppointmentController::class, 'booking'])->name('booking');
+Route::group(['middleware'=>'mygust'], function(){
+    Route::get('/login', [PatientController::class, 'login'])->name('login');
+    Route::post('/login', [PatientController::class, 'handleLoginPatient'])->name('handleLoginPatient');
+    Route::get('/signup', [PatientController::class, 'signup'])->name('signup');
+    Route::post('/signup', [PatientController::class, 'Handle_signup'])->name('Handle_signup');
+});
+
+
 Route::get('/admin', [AdminController::class, 'login_Admin'])->name('login_Admin');
-Route::get('/services', [ServiceController::class, 'services'])->name('services');
 
 Route::get('/addService', [ServiceController::class, 'Add_service'])->name('Add_service');
 Route::post('/addService', [ServiceController::class, 'Handle_Add_service'])->name('Handle_Add_service');
@@ -28,7 +39,7 @@ Route::get('/receptionest', [StaffController::class, 'staff_login'])->name('staf
 Route::get('/dashboard', [StaffController::class, 'dashboard'])->name('dashboard');
 Route::get('/staffDashboard', [StaffController::class, 'staffDashboard'])->name('staffDashboard');
 
-Route::get('/doctors', [DoctorController::class, 'Doctors'])->name('Doctors');
+
 
 Route::get('/addDoctor', [DoctorController::class, 'Add_Doctor'])->name('Add_Doctor');
 Route::get('/doctorDashboard', [DoctorController::class, 'doctorDashboard'])->name('doctorDashboard');

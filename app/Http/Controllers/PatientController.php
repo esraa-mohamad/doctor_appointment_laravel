@@ -17,6 +17,40 @@ class PatientController extends Controller
         return view('login');
     }
 
+    public function handleLoginPatient(Request $request)
+    {
+        $email =$request->email;
+        $password=$request->password;
+
+        // search user from database
+        $result= DB::select(
+            "select * from patients where email=? and password=?",
+            [$email,$password]
+        );
+
+        //if user not found
+        if(empty($result))
+        {
+            return back()->with('error' , 'Wrong email or password')->withInput();
+        }
+
+        //otherwise get user
+        $patient=$result[0];
+
+        // make session ad save data 
+
+        session()->regenerate();
+        session(['patient'=>$patient]);
+        return to_route('home');
+    }
+
+    public function handleLogoutPatient()
+    {
+         session()->invalidate();
+          return to_route('welcome');
+
+    }
+
      public function signup(){
         return view('signup');
     }

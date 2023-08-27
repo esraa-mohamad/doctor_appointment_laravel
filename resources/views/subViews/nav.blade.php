@@ -41,10 +41,14 @@
       <div class="row" style="margin-right: 40px;">
         <div class="col-7" style="text-align: center;">
           <i class="fa-solid fa-user"></i>
-          <p class="user_name" style="padding: 0; margin:0">Hi</p>
+          <p class="user_name" style="padding: 0; margin:0">Hi {{session('patient')->fname}} </p>
         </div>
         <div class="col-5 last" style="display: flex; ">
-          <button type="button" class="btn btn-info btn-rounded">Log out</button>
+          <a href="{{route('handleLogoutPatient')}}">
+            <button type="button"  class="btn btn-info btn-rounded">
+           Log out
+          </button>
+        </a>
         </div>
 
       </div>
