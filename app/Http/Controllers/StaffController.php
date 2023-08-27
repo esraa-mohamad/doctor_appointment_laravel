@@ -133,4 +133,10 @@ class StaffController extends Controller
         return view('dashboard', ['patients'=>$patients]);
        
     }
+
+    public function Delete_Staff($id){
+        DB::delete("delete from staff where id =?",[$id]);
+        return redirect(route('staffDashboard'));
+   
+    } 
 }

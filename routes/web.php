@@ -44,10 +44,14 @@ Route::post('/add_staff', [StaffController::class, 'Handle_addStaff'])->name('Ha
 
 Route::get('/updateStaff/{id}', [StaffController::class, 'UpdateStaff'])->name('UpdateStaff');
 Route::post('/updateStaff/{id}', [StaffController::class, 'HandleUpdateStaff'])->name('HandleUpdateStaff');
+Route::post('/deleteStaff/{id}', [StaffController::class, 'Delete_Staff'])->name('Delete_Staff');
 
 Route::get('/addService', [ServiceController::class, 'Add_service'])->name('Add_service');
 Route::post('/addService', [ServiceController::class, 'Handle_Add_service'])->name('Handle_Add_service');
 
+
 Route::get('/updateService/{id}', [ServiceController::class, 'Update_Service'])->name('Update_Service');
 Route::post('/updateService/{id}', [ServiceController::class, 'Handle_Update_Service'])->name('Handle_Update_Service');
+Route::post('/deleteService/{id}', [ServiceController::class, 'Delete_Service'])->name('Delete_Service');
+
 

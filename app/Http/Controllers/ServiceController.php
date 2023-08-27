@@ -105,7 +105,9 @@ class ServiceController extends Controller
 
        
     }
-    public function delete_service(){
-        return "service deleted";
-    }
+    public function Delete_Service($id){
+        DB::delete("delete from services where id =?",[$id]);
+        return redirect(route('serviceDashboard'));
+   
+    } 
 }

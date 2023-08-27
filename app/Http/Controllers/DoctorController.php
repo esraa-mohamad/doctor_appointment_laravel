@@ -148,6 +148,7 @@ class DoctorController extends Controller
 
     public function Delete_Doctor($id){
         DB::delete("delete from doctors where id =?",[$id]);
-        return redirect(route('dashboard'));    
+        return redirect(route('doctorDashboard'));
+   
     } 
 }
