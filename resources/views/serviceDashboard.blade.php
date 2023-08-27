@@ -9,7 +9,7 @@
 
     <div class="container">
       <button type="button" id="btt" class="btn btn-info"> <a class="text-white"
-        @class([Route::is('Add_service')])aria-current="page" href="{{route('Add_service')}}">ADD Service+ </a
+        aria-current="page" href="{{route('Add_service')}}">ADD Service+ </a
         > </button>
     <table class="table">
       <thead>

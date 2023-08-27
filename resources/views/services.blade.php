@@ -55,90 +55,29 @@
     </div>
     <div class="container">
       <div class="row">
+        @foreach ($services as $service)
         <div class=" col-lg-3 col-md-6 mb-4">
           <div class=" price pricing_card">
             <div class="pricing_header text-center">
-              <h3>For specific issues</h3>
-              <img src="{{asset('img/d00e98d12e92b8119c2756f67d3e4133.jpg')}}" alt="" class="imm">
+              <h3>{{ $service->service_name }}</h3>
+              <img src="{{asset('img/services/'. $service->image )}}" alt="" class="imm">
             </div>
             <div class="pricing_body text-center">
               <div class="pri text-center"><h2>150$</h2></div>
               <div class="benefits " >
                 <ul>
-                  <li>Free with Dental Insurance</li>
-                  <li>Best for a specific problem</li>
-                  <li>Quick & simple dental assessment</li>
-                  <li>Summary report within 6 hours</li>
-                  <li>Care advice & options</li>
+                  <li>{{ $service->service_type }}</li>
+                  <li>{{ $service->service_code }}</li>
+                  <li>{{ $service->additional_info }}</li>
+                  <li>{{ $service->cost }}</li>
                 </ul>
               </div>
-              <a href="#" class=" res btn btn-primary">Enquiry</a>
             </div>
           </div>
         </div>
-        <div class="  col-lg-3 col-md-6 mb-4">
-          <div class=" price pricing_card">
-            <div class="pricing_header text-center">
-              <h3>Nerve detection</h3>
-              <img src="{{asset('img/brain-muscular-cartoon-mascot-vector-260nw-1861682452.webp')}}" alt="" class="brain">
-            </div>
-            <div class="pricing_body text-center">
-            <div class="pri text-center"><h2>180$</h2></div>
-              <div class="benefits">
-                <ul>
-                  <li>Free with Dental Insurance</li>
-                  <li>Best for a specific problem</li>
-                  <li>Quick & simple dental assessment</li>
-                  <li>Summary report within 6 hours</li>
-                  <li>Care advice & options</li>
-                </ul>
-                </div>
-                <a href="#" class=" res btn btn-primary">Enquiry</a>
-              </div>
-          </div>
-        </div>
-        <div class=" col-lg-3 col-md-6 mb-4">
-        <div class=" price pricing_card">
-            <div class="pricing_header text-center">
-              <h3>Abdomen Detecation</h3>
-              <img src="{{asset('img/sad-suffering-sick-cute-human-260nw-1424728901.webp')}}" alt="" class="adb">
-            </div>
-            <div class="pricing_body text-center">
-            <div class="pri text-center"><h2>200$</h2></div>
-              <div class="benefits">
-                <ul>
-                  <li>Free with Dental Insurance</li>
-                  <li>Best for a specific problem</li>
-                  <li>Quick & simple dental assessment</li>
-                  <li>Summary report within 6 hours</li>
-                  <li>Care advice & options</li>
-                </ul>
-                </div>
-                <a href="#" class=" res btn btn-primary">Enquiry</a>
-              </div>
-          </div>
-        </div>
-        <div class=" col-lg-3 col-md-6 mb-4">
-        <div class=" price pricing_card">
-            <div class="pricing_header text-center">
-              <h3>Surgical Detecation</h3>
-              <img src="{{asset('img/png-transparent-medicine-health-care-clinic-therapy-disease-medical-technology-background-black-stethoscope-blue-hand-people.png')}}" alt="" class="sur">
-            </div>
-            <div class="pricing_body text-center ">
-            <div class="pri text-center"><h2>200$</h2></div>
-              <div class="benefits">
-                <ul>
-                  <li>Free with Dental Insurance</li>
-                  <li>Best for a specific problem</li>
-                  <li>Quick & simple dental assessment</li>
-                  <li>Summary report within 6 hours</li>
-                  <li>Care advice & options</li>
-                </ul>
-                </div>
-                <a href="#" class=" res btn btn-primary">Enquiry</a>
-              </div>
-          </div>
-        </div>
+        @endforeach
+        
+        
       </div>
     </div>
 

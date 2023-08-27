@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Validator;
 class DoctorController extends Controller
 {
     public function Doctors(){
-        return view('doctors');
+        $doctors= DB::select("select * from doctors");
+        return view('doctors',compact('doctors'));
     }
     public function doctorDashboard(){
         $doctors= DB::select("select * from doctors");

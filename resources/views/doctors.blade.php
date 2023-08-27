@@ -10,9 +10,10 @@
   </div>
   <div class="container">
     <div class="row row-cols-1 row-cols-md-2 g-4">
+      @foreach ($doctors as $doctor)
       <div class="col col-lg-3 col-md-6">
         <div class="card pos">
-          <img src="{{asset('img/Docter1.jpg')}}" class="card-img-top" alt="...">
+          <img src="{{asset('img/doctors/'.$doctor->image)}}" class="card-img-top" alt="...">
           <div class="product-overlay">
             <ul class="list-unstyled">
               <li><a href="#"><i class="fab fa-facebook" style="color: white !important;"></i></a></li>
@@ -22,159 +23,18 @@
             </ul>
           </div> <!-- product-overlay -->
           <div class="card-body">
-            <h3 class="card-title text-center">Dr. Lloyd Wilson</h3>
-            <h5 class="text-center"> Neurologist</h5>
-            <p class="m text-center">Wednesday - Thursday</p>
-            <p class="n text-center">1 pm - 5:30 pm</p>
-            <a href="reserve.html" class=" doc btn btn-primary">Reserve</a>
+            <h3 class="card-title text-center">Dr. {{$doctor->fname}} {{$doctor->lname}}</h3>
+            <h5 class="text-center"> {{$doctor->specialty}}</h5>
+            <p class="m text-center">{{$doctor->shift_time}}</p>
+            <p class="n text-center">{{ $doctor->phone }}</p>
+            <h6 class="text-center"> {{ $doctor->additional_info }}</h6>
+            <a href="reserve.html" class=" doc btn btn-primary">Booking Appointment</a>
           </div>
                 </div>
       </div>
-      <div class="col col-lg-3 col-md-6">
-        <div class="card pos">
-          <img src="{{asset('img/docter2.jpg')}}" class="card-img-top" alt="...">
-          <div class="product-overlay">
-            <ul class="list-unstyled">
-              <li><a href="#"><i class="fab fa-facebook" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-linkedin" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram" style="color: white !important;"></i></a></li>
-            </ul>
-          </div> <!-- product-overlay -->
-          <div class="card-body">
-            <h3 class="card-title text-center">Dr. Barry Taller</h3>
-            <h5 class="text-center">  otolaryngologist</h5>
-            <p class="m text-center">Wednesday - Thursday</p>
-            <p class="n text-center">1 pm - 5:30 pm</p>
-            <a href="reserve.html" class=" doc btn btn-primary">Reserve</a>
-          </div>
-        </div>
-      </div>
-      <div class="col col-lg-3 col-md-6">
-        <div class="card pos">
-          <img src="{{asset('img/docter34.jpg')}}" class="card-img-top" alt="...">
-          <div class="product-overlay">
-            <ul class="list-unstyled">
-              <li><a href="#"><i class="fab fa-facebook" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-linkedin" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram" style="color: white !important;"></i></a></li>
-            </ul>
-          </div> <!-- product-overlay -->
-          <div class="card-body">
-            <h3 class="card-title text-center">Dr. Gary Moore</h3>
-            <h5 class="text-center"> surgeon</h5>
-            <p class="m text-center">Wednesday - Thursday</p>
-            <p class="n text-center">1 pm - 5:30 pm</p>
-            <a href="reserve.html" class=" doc btn btn-primary">Reserve</a>
-          </div>
-        </div>
-      </div>
-      <div class="col col-lg-3 col-md-6">
-        <div class="card pos">
-          <img src="{{asset('img/docter4.avif')}}" class="card-img-top" alt="..." >
-          <div class="product-overlay">
-            <ul class="list-unstyled">
-              <li><a href="#"><i class="fab fa-facebook" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-linkedin" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram" style="color: white !important;"></i></a></li>
-            </ul>
-          </div> <!-- product-overlay -->
-          <div class="card-body">
-            <h3 class="card-title text-center">Dr. Ian Smith</h3>
-            <h5 class="text-center"> Dentist</h5>
-            <p class="m text-center">Wednesday - Thursday</p>
-            <p class="n text-center">1 pm - 5:30 pm</p>
-            <a href="reserve.html" class=" doc btn btn-primary">Reserve</a>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
 </div>
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col col-lg-3 col-md-6">
-        <div class="card pos">
-          <img src="{{asset('img/docter4.avif')}}" class="card-img-top" alt="...">
-          <div class="product-overlay">
-            <ul class="list-unstyled">
-              <li><a href="#"><i class="fab fa-facebook" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-linkedin" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram" style="color: white !important;"></i></a></li>
-            </ul>
-          </div> <!-- product-overlay -->
-          <div class="card-body">
-            <h3 class="card-title text-center">Dr. Nicholas Bryant</h3>
-            <h5 class="text-center"> Neurologist</h5>
-            <p class="m text-center">Wednesday - Thursday</p>
-            <p class="n text-center">1 pm - 5:30 pm</p>
-            <a href="reserve.html" class=" doc btn btn-primary">Reserve</a>
-          </div>
-                </div>
-      </div>
-      <div class="col col-lg-3 col-md-6">
-        <div class="card pos">
-          <img src="{{asset('img/doctors-7.jpg')}}" class="card-img-top" alt="...">
-          <div class="product-overlay">
-            <ul class="list-unstyled">
-              <li><a href="#"><i class="fab fa-facebook" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-linkedin" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram" style="color: white !important;"></i></a></li>
-            </ul>
-          </div> <!-- product-overlay -->
-          <div class="card-body">
-            <h3 class="card-title text-center">Dr. Victoria Morgan</h3>
-            <h5 class="text-center">  otolaryngologist</h5>
-            <p class="m text-center">Wednesday - Thursday</p>
-            <p class="n text-center">1 pm - 5:30 pm</p>
-            <a href="reserve.html" class=" doc btn btn-primary">Reserve</a>
-          </div>
-        </div>
-      </div>
-      <div class="col col-lg-3 col-md-6">
-        <div class="card pos">
-          <img src="{{asset('img/doctors-8.jpg')}}" class="card-img-top" alt="...">
-          <div class="product-overlay">
-            <ul class="list-unstyled">
-              <li><a href="#"><i class="fab fa-facebook" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-linkedin" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram" style="color: white !important;"></i></a></li>
-            </ul>
-          </div> <!-- product-overlay -->
-          <div class="card-body">
-            <h3 class="card-title text-center">Dr. Katherine Wong</h3>
-            <h5 class="text-center"> surgeon</h5>
-            <p class="m text-center">Wednesday - Thursday</p>
-            <p class="n text-center">1 pm - 5:30 pm</p>
-            <a href="reserve.html" class=" doc btn btn-primary">Reserve</a>
-          </div>
-        </div>
-      </div>
-      <div class="col col-lg-3 col-md-6">
-        <div class="card pos">
-          <img src="{{asset('img/doctors-6.jpg')}}" class="card-img-top" alt="..." >
-          <div class="product-overlay">
-            <ul class="list-unstyled">
-              <li><a href="#"><i class="fab fa-facebook" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-linkedin" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram" style="color: white !important;"></i></a></li>
-            </ul>
-          </div> <!-- product-overlay -->
-          <div class="card-body">
-            <h3 class="card-title text-center">Dr. Walter Jenkins</h3>
-            <h5 class="text-center"> Dentist</h5>
-            <p class="m text-center">Wednesday - Thursday</p>
-            <p class="n text-center">1 pm - 5:30 pm</p>
-            <a href="reserve.html" class=" doc btn btn-primary">Reserve</a>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
+
 @include('subViews.footer')
 @endsection

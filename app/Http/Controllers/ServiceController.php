@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Validator;
 class ServiceController extends Controller
 {
     public function services(){
-        return view('services');
+        $services= DB::select("select * from services");
+        return view('services',compact('services'));
     }
     public function serviceDashboard(){
         $services= DB::select("select * from services");
