@@ -68,8 +68,8 @@
 
       <!-- code  -->
       <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-        <input type="number" id="form6Example7" name="code" value="{{$staff->code}}" class="form-control" />
-        <label class="form-label" for="form6Example7">code</label>
+        <input type="password" id="form6Example7" name="password" value="{{$staff->password}}" class="form-control" />
+        <label class="form-label" for="form6Example7">password</label>
        
       </div>
 

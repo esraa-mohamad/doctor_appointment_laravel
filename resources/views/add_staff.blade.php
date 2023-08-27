@@ -75,16 +75,16 @@
       </div>
       @error('phone')
       <div class="text-danger">{{ $message }}</div>
-    @enderror
+      @enderror
 
       <!-- code  -->
       <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-        <input type="number" id="form6Example7" name="code" value="{{ old('code') }}" class="form-control" />
-        <label class="form-label" for="form6Example7">code</label>
+        <input type="password" id="form6Example7" name="password" value="{{ old('password') }}" class="form-control" />
+        <label class="form-label" for="form6Example7">Password</label>
       </div>
-      @error('code')
+      @error('passsword')
       <div class="text-danger">{{ $message }}</div>
-    @enderror
+      @enderror
 
       <!-- shift time -->
       <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
@@ -107,7 +107,7 @@
 
       <select name="staff_type" id="form3Example3" class="form-control">
         <option value="{{ old('staff_type') }}" selected disabled >select staff category</option>
-        <option value="receptionest" {{ old('staff_type') == 'receptionest' ? 'selected' : '' }}>Doctor</option>
+        <option value="receptionest" {{ old('staff_type') == 'receptionest' ? 'selected' : '' }}>Receptionest</option>
         <option value="nurse" {{ old('staff_type') == 'nurse' ? 'selected' : '' }}>Nurse</option>
     </select>
     @error('staff_type')

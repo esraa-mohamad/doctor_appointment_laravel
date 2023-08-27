@@ -12,6 +12,40 @@ class StaffController extends Controller
         return view('receptionest_login');
     }
 
+    public function handleLoginStaff(Request $request)
+    {
+        $email =$request->email;
+        $password=$request->password;
+
+        // search user from database
+        $result= DB::select(
+            "select * from staff where email=? and password=?",
+            [$email,$password]
+        );
+
+        //if user not found
+        if(empty($result))
+        {
+            return back()->with('error' , 'Wrong email or password')->withInput();
+        }
+
+        //otherwise get user
+        $staff=$result[0];
+
+        // make session ad save data 
+
+        session()->regenerate();
+        session(['staff'=>$staff]);
+        return to_route('dashboard');
+
+    }
+
+    public function handleLogoutStaff()
+    {
+         session()->invalidate();
+          return to_route('welcome');
+ 
+    }
     public function addStaff(){
         return view('add_staff');
     }
@@ -28,7 +62,7 @@ class StaffController extends Controller
         $national_id=$request->national_id;
         $email=$request->email;
         $phone=$request->phone;
-        $code=$request->code;
+        $password=$request->password;
         $shift_time=$request->shift_time;
         $sallary=$request->sallary;
         $staff_type=$request->staff_type;
@@ -38,7 +72,7 @@ class StaffController extends Controller
             'fname' => 'required|string|min:3|regex:/^[a-zA-Z-\' ]*$/',
             'lname' => 'required|string|min:3|regex:/^[a-zA-Z-\' ]*$/',
             'phone' => 'required|digits:11',
-            'code' => 'required|digits:4|unique:staff,code',
+            'password' => 'required|digits:8',
             'email' => 'required|email|unique:staff,email',
             'national_id' => 'required|digits:14|unique:staff,national_id',
             'sallary' => 'required',
@@ -70,9 +104,9 @@ class StaffController extends Controller
             'national_id.digits' => 'Invalid national number. Please enter a 14-digit national number.',
             'national_id.unique' => 'National ID already exists',
 
-            'code.required' => 'Code is required',
-            'code.digits' => 'Invalid code number. Please enter a 4-digit code number.',
-            'code.unique' => 'Code already exists',
+            'password.required' => 'Password is required',
+            'password.digits' => 'Invalid password number. Please enter a 8-digit password number.',
+          
 
 
             'address.required' => 'Address is required',
@@ -92,8 +126,8 @@ class StaffController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        DB::insert("insert into staff (fname, lname, address, national_id, email,phone, code, shift_time, sallary,staff_type, additional_info) 
-        values (?,?,?,?,?,?,?,?,?,?,?)",[$fname,$lname,$address,$national_id, $email, $phone, $code, $shift_time, $sallary,$staff_type,$additional_info]);
+        DB::insert("insert into staff (fname, lname, address, national_id, email,phone, password, shift_time, sallary,staff_type, additional_info) 
+        values (?,?,?,?,?,?,?,?,?,?,?)",[$fname,$lname,$address,$national_id, $email, $phone, $password, $shift_time, $sallary,$staff_type,$additional_info]);
 
         return redirect(route('staffDashboard')); 
 
@@ -111,7 +145,7 @@ class StaffController extends Controller
         $national_id=$request->national_id;
         $email=$request->email;
         $phone=$request->phone;
-        $code=$request->code;
+        $password=$request->password;
         $shift_time=$request->shift_time;
         $sallary=$request->sallary;
         $specialty=$request->specialty;
@@ -120,8 +154,8 @@ class StaffController extends Controller
        
 
 
-        DB::update("update staff set fname=? , lname=?, address=?, national_id=? ,email=? ,phone=? ,code=? ,shift_time=? ,sallary=?, specialty=? ,additional_info=? where id=?",
-        [$fname,$lname,$address,$national_id,$email,$phone,$code,$shift_time, $sallary,$specialty,$additional_info , $id]);
+        DB::update("update staff set fname=? , lname=?, address=?, national_id=? ,email=? ,phone=? ,password=? ,shift_time=? ,sallary=?, specialty=? ,additional_info=? where id=?",
+        [$fname,$lname,$address,$national_id,$email,$phone,$password,$shift_time, $sallary,$specialty,$additional_info , $id]);
 
         return redirect(route('staffDashboard', ['id'=>$id]));
 

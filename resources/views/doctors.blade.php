@@ -28,7 +28,7 @@
             <p class="m text-center">{{$doctor->shift_time}}</p>
             <p class="n text-center">{{ $doctor->phone }}</p>
             <h6 class="text-center"> {{ $doctor->additional_info }}</h6>
-            <a href="reserve.html" class=" doc btn btn-primary">Booking Appointment</a>
+            <a href="reserve.html" class=" doc btn btn-primary" >Booking Appointment</a>
           </div>
                 </div>
       </div>
