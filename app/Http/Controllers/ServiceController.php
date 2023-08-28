@@ -52,6 +52,8 @@ class ServiceController extends Controller
             'additional_info.required'  => 'Additional_info is required',
 
             'cost.required' => 'Cost is required',
+
+            'image.required' => 'Image is required',
  
         ]);
     
