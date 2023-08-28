@@ -338,7 +338,7 @@ body {
 }
 .list-group-item
 {
-  background-color: #1b1c1c;
+  background-color: #1b1c1c !important;
 }
 @media (max-width: 991.98px) {
   .sidebar {

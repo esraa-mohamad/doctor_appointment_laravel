@@ -8,8 +8,8 @@
           @class([Route::is('dashboard')])aria-current="page" href="{{route('dashboard')}}">patients
         <i class="bi bi-clipboard2-pulse-fill"></i><span></span>
         </a>
-        <a href="{{route('handleLogoutStaff')}}">
-          <button type="button"  class="btn btn-info btn-rounded">
+        <a class="list-group-item" href="{{route('handleLogoutStaff')}}">
+          <button type="button"  class="btn text-white btn-info btn-rounded">
          Log out
         </button>
         </a>
@@ -28,8 +28,8 @@
         <a class="list-group-item py-2 ripple text-white"
         @class([Route::is('doctorDashboard')])aria-current="page" href="{{route('doctorDashboard')}}">doctors<i class="bi bi-heart-pulse-fill"></i><span></span></a
         >
-        <a href="{{route('handleLogoutAdmin')}}">
-          <button type="button"  class="btn btn-info btn-rounded">
+        <a class="list-group-item" href="{{route('handleLogoutAdmin')}}">
+          <button type="button"  class="btn text-white btn-info btn-rounded">
          Log out
         </button>
       </a>

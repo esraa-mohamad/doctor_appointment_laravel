@@ -41,6 +41,5 @@ class AdminController extends Controller
    {
         session()->invalidate();
          return to_route('welcome');
-
    }
 }

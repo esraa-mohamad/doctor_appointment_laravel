@@ -161,12 +161,7 @@ class StaffController extends Controller
 
        
     }
-    public function dashboard()
-    {
-        $patients= DB::select("select * from patients");
-        return view('dashboard', ['patients'=>$patients]);
-       
-    }
+
 
     public function Delete_Staff($id){
         DB::delete("delete from staff where id =?",[$id]);

@@ -16,7 +16,11 @@
           <th scope="col">Last Name</th>
           <th scope="col">phone</th>
           <th scope="col">national id</th>
-          <th scope="col">email</th>
+          <th scope="col">address</th>
+          <th scope="col">time</th>
+          <th scope="col">date</th>
+          <th scope="col">doctor_name</th>
+          <th scope="col">code</th>
           <th scope="col">delete</th>
         </tr>
       </thead>
@@ -28,8 +32,16 @@
          <td>{{ $patient->lname }}</td>
          <td>{{ $patient->phone }}</td>
          <td>{{ $patient->national_id }}</td>
-         <td>{{ $patient->email }}</td>
-         <td> <i class="far fa-trash-can text-danger"></i> </td>
+         <td>{{ $patient->address }}</td>
+         <td>{{ $patient->time }}</td>
+         <td>{{ $patient->date }}</td>
+         <td>{{ $patient->doctor_name }}</td>
+         <td>{{ $patient->code }}</td>
+         <td>   
+          <form method="post" action="{{route('delete_appointment',['id'=>$patient->id])}}">
+          @csrf
+          <input type="submit" class="btn btn-danger" value="delete">
+        </form></td>
          </tr>
        @endforeach
         

@@ -17,8 +17,11 @@ Route::group(['middleware'=>'mypatient'], function(){
     Route::get('/home', [PatientController::class, 'home'])->name('home');
     Route::get('/services', [ServiceController::class, 'services'])->name('services');
     Route::get('/doctors', [DoctorController::class, 'Doctors'])->name('Doctors');
-    Route::get('/booking', [AppointmentController::class, 'booking'])->name('booking');
+    Route::get('/appointmentCard', [AppointmentController::class, 'appointmentCard'])->name('appointmentCard');
+    Route::post('/appointmentCard/{id}', [AppointmentController::class, 'delete_booking'])->name('cancel_appointment');
+    Route::get('/booking/{id}', [AppointmentController::class, 'booking'])->name('booking');
     Route::get('/logout', [PatientController::class, 'handleLogoutPatient'])->name('handleLogoutPatient');
+    Route::post('/handleappointment', [AppointmentController::class, 'handleappointment'])->name('handleappointment');
 });
 
 Route::group(['middleware'=>'mygust'], function(){
@@ -57,7 +60,7 @@ Route::group(['middleware'=>'mydachboard'], function(){
     Route::post('/updateService/{id}', [ServiceController::class, 'Handle_Update_Service'])->name('Handle_Update_Service');
     Route::post('/deleteService/{id}', [ServiceController::class, 'Delete_Service'])->name('Delete_Service');
 
-    Route::get('/welcome', [AdminController::class, 'handleLogoutAdmin'])->name('handleLogoutAdmin');
+    Route::get('/welcomeadmin', [AdminController::class, 'handleLogoutAdmin'])->name('handleLogoutAdmin');
 });
 
 Route::group(['middleware'=>'mygustdachboard'], function(){
@@ -68,7 +71,8 @@ Route::group(['middleware'=>'mygustdachboard'], function(){
 
 Route::group(['middleware'=>'mystaff'], function(){
 
-    Route::get('/dashboard', [StaffController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [AppointmentController::class, 'dashboard'])->name('dashboard');
+    Route::post('/delete_appointment/{id}', [AppointmentController::class, 'delete_appointment'])->name('delete_appointment');
     Route::get('/welcome', [StaffController::class, 'handleLogoutStaff'])->name('handleLogoutStaff');
 
 });
