@@ -11,6 +11,51 @@
       <button type="button" id="btt" class="btn btn-info"> <a class="text-white"
         aria-current="page" href="{{route('Add_service')}}">ADD Service+ </a
         > </button>
+
+        <!-- ---------------------------------Start search services-------------------------------------- -->
+        
+    <form action="{{route('Search_service')}}" method="get">
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      @csrf
+     
+
+      <!-- service name -->
+      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif; ">
+        <input type="text" id="form6Example3" name="service_name" value="{{request('service_name')}}" class="form-control" />
+        <label class="form-label" for="form6Example3">Service name</label>
+      </div>
+
+     
+      <!-- Service code -->
+      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+        <input type="text" id="form6Example4" name="service_code" value="{{request('service_code')}}" class="form-control" />
+        <label class="form-label" for="form6Example4">Service code</label>
+      </div>
+
+     
+
+      <!-- service type  -->
+      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+        <input type="text" id="form6Example5" name="service_type" value="{{request('service_type')}}" class="form-control" />
+        <label class="form-label" for="form6Example5">Surgery type</label>
+      </div>
+
+     
+
+      <!-- cost -->
+      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+        <input type="text" id="form6Example6" name="cost" value="{{request('cost')}}" class="form-control" />
+        <label class="form-label" for="form6Example6">Cost</label>
+      </div>
+
+
+      <!-- Submit button -->
+      <input type="submit" class="btn btn-primary btn-block mb-4" style="font-family: 'Cormorant Garamond'; font-size: 15px;" name="add_service" value="Search">
+    </form>
+    <a href="{{route('serviceDashboard')}}" class="btn btn-primary btn mb-4" style="font-family: 'Cormorant Garamond'; font-size: 15px; float:right; color:white;">clear Search</a>
+
+        <!-- ---------------------------------end search services---------------------------------------- -->
+
     <table class="table">
       <thead>
         <tr>

@@ -10,6 +10,106 @@
       <button type="button" id="btt" class="btn btn-info"> <a class="text-white"
         @class([Route::is('Add_Doctor')])aria-current="page" href="{{route('Add_Doctor')}}">ADD Doctor+ </a
         > </button>
+
+         <!----------------------------------------------- Start Search form ------------------------------------------------------>
+
+    <form method="get" action="{{route('Search_doctor')}}">
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      @csrf
+      <div class="row mb-2" style="font-family: 'Cormorant Garamond', serif; ">
+        <div class="col">
+          <div class="form-outline">
+
+            <!-- first name -->
+            <input type="text" id="form6Example1" name="fname" value="{{request('fname')}}" class="form-control" />
+            <label class="form-label" for="form6Example1">First name</label>
+          </div>
+         
+        </div>
+
+
+        <!-- last name -->
+        <div class="col">
+          <div class="form-outline">
+            <input type="text" id="form6Example2" name="lname" value="{{request('lname')}}" class="form-control" />
+            <label class="form-label" for="form6Example2">Last name</label>
+          </div>
+         
+        </div>
+
+      </div>
+
+      <!-- address -->
+      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif; ">
+        <input type="text" id="form6Example3" name="address" value="{{request('address')}}" class="form-control" />
+        <label class="form-label" for="form6Example3">Address</label>
+       
+      </div>
+     
+
+      <!-- national id -->
+      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+        <input type="text" id="form6Example4" name="national_id" value="{{request('national_id')}}" class="form-control" />
+        <label class="form-label" for="form6Example4">National id </label>
+       
+      </div>
+    
+
+      <!-- Email  -->
+      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+        <input type="email" id="form6Example5" name="email" value="{{request('email')}}" class="form-control" />
+        <label class="form-label" for="form6Example5">Email</label>
+       
+      </div>
+      
+
+
+      <!-- Phone Number -->
+      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+        <input type="text" id="form6Example6" name="phone" value="{{request('phone')}}" class="form-control" />
+        <label class="form-label" for="form6Example6">Phone</label>
+      
+      </div>
+    
+
+      <!-- code  -->
+      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+        <input type="number" id="form6Example7" name="code" value="{{request('code')}}" class="form-control" />
+        <label class="form-label" for="form6Example7">code</label>
+       
+      </div>
+     
+     <!-- Specialty -->
+     <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+      <input type="text" id="form6Example8" name="specialty" value="{{request('specialty')}}" class="form-control" />
+      <label class="form-label" for="form6Example8">Specialty</label>
+     
+    </div>
+  
+      <!-- shift time -->
+      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+        <input type="text" id="form6Example8" name="shift_time" value="{{request('shift_time')}}" class="form-control" />
+        <label class="form-label" for="form6Example8">shift time</label>
+       
+      </div>
+     
+
+      <!-- salary -->
+      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+        <input type="text" id="form6Example9" name="sallary" value="{{request('sallary')}}" class="form-control" />
+        <label class="form-label" for="form6Example9">Salary</label>
+       
+      </div>
+
+      <!-- Submit button -->
+      <input type="submit" class="btn btn-primary btn-block mb-4" style="font-family: 'Cormorant Garamond'; font-size: 15px;" name="search_doctor" value="search">
+    </form>
+    <a href="{{route('doctorDashboard')}}" class="btn btn-primary btn mb-4" style="font-family: 'Cormorant Garamond'; font-size: 15px; float:right; color:white;">clear Search</a>
+
+    <!------------------------------------------------------------- end search form--------------------------------------------------- -->
+
+
+
     <table class="table">
       <thead>
         <tr>

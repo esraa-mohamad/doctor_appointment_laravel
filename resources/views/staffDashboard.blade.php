@@ -10,6 +10,8 @@
     <button type="button" id="btt" class="btn btn-info"> <a class="text-white"
         @class([Route::is('addStaff')])aria-current="page" href="{{route('addStaff')}}">ADD Staff+ </a
         > </button>
+
+
     <table class="table">
       <thead>
         <tr>
