@@ -16,7 +16,11 @@ Route::get('/',[WelcomeController::class,'welcome'])->name('welcome');
 Route::group(['middleware'=>'mypatient'], function(){
     Route::get('/home', [PatientController::class, 'home'])->name('home');
     Route::get('/services', [ServiceController::class, 'services'])->name('services');
+    Route::get('/searchServiceForPatient', [ServiceController::class, 'Search_service_for_patient'])->name('Search_service_for_patient');
     Route::get('/doctors', [DoctorController::class, 'Doctors'])->name('Doctors');
+
+    Route::get('/SearchDoctorForPatient', [DoctorController::class, 'Search_doctor_forPatient'])->name('Search_doctor_forPatient');
+
     Route::get('/appointmentCard', [AppointmentController::class, 'appointmentCard'])->name('appointmentCard');
     Route::post('/appointmentCard/{id}', [AppointmentController::class, 'delete_booking'])->name('cancel_appointment');
     Route::get('/booking/{id}', [AppointmentController::class, 'booking'])->name('booking');
@@ -63,6 +67,11 @@ Route::group(['middleware'=>'mydachboard'], function(){
     Route::post('/deleteService/{id}', [ServiceController::class, 'Delete_Service'])->name('Delete_Service');
 
     Route::get('/searchService', [ServiceController::class, 'Search_service'])->name('Search_service');
+
+
+
+
+
 
     Route::get('/welcomeadmin', [AdminController::class, 'handleLogoutAdmin'])->name('handleLogoutAdmin');
 });

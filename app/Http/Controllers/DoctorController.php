@@ -196,4 +196,23 @@ class DoctorController extends Controller
     return view('doctorDashboard', ['doctors'=>$doctors]);
 
     }
+
+
+    public function Search_doctor_forPatient(Request $request){
+        $fname=$request->fname;
+        $specialty=$request->specialty;
+       
+       $doctors= DB::select("select * from doctors where 
+        (:fname is null or fname like :fname)
+        and (:specialty is null or specialty like :specialty)" ,[
+        'fname'=>"%$fname%",
+        'specialty'=>"%$specialty%",
+
+        ]
+    
+    );
+    
+    return view('Doctors', ['doctors'=>$doctors]);
+
+    }
 }
