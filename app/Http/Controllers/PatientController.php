@@ -64,19 +64,7 @@ class PatientController extends Controller
         $email=$request->email;
         $password=$request->password;
         $confirm=$request->confirm;
-        if($request->hasFile('image'))
-        {
-            $file=$request->file('image');
-            $extensio=$file->getClientOriginalExtension();
-            $file_name= time().'.'.$extensio;
-            $file->move('img/patients/',$file_name);
-            $image=$file_name;
-        }
-        else{
-            return $request;
-            $image='';
-        }
-
+        $image=$request->image;
         $validator = Validator::make($request->all(), [
             'fname' => 'required|string|min:3|regex:/^[a-zA-Z-\' ]*$/',
             'lname' => 'required|string|min:3|regex:/^[a-zA-Z-\' ]*$/',
@@ -85,6 +73,7 @@ class PatientController extends Controller
             'national_id' => 'required|digits:14|unique:patients,national_id',
             'password' => 'required|min:8',
             'confirm' => 'required|same:password',
+            'image'=>'required'
         ], [
             'fname.required' => 'First name is required',
             'fname.string' => 'First name must be a string',
@@ -113,11 +102,25 @@ class PatientController extends Controller
             'confirm.required' => 'Confirm Password is required',
             'confirm.same' => 'Confirm Password does not match with password',
 
+            'image.required' => 'Image  is required',
+
         ]);
     
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         } 
+        if($request->hasFile('image'))
+        {
+            $file=$request->file('image');
+            $extensio=$file->getClientOriginalExtension();
+            $file_name= time().'.'.$extensio;
+            $file->move('img/patients/',$file_name);
+            $image=$file_name;
+        }
+        else{
+            return $request;
+            $image='';
+        }
         DB::insert("insert into patients (fname, lname, phone, national_id, email,password,image) 
         values (?,?,?,?,?,?,?)",[$fname,$lname,$phone,$national_id, $email, $password,$image]);
 

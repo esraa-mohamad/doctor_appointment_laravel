@@ -26,25 +26,14 @@ class ServiceController extends Controller
         $service_type=$request->service_type;
         $cost=$request->cost;
         $additional_info= $request->additional_info;
-        if($request->hasFile('image'))
-        {
-            $file=$request->file('image');
-            $extensio=$file->getClientOriginalExtension();
-            $file_name= time().'.'.$extensio;
-            $file->move('img/services/',$file_name);
-            $image=$file_name;
-        }
-        else{
-            return $request;
-            $image='';
-        }
-
+        $image=$request->image;
         $validator = Validator::make($request->all(), [
             'service_name' => 'required|string|min:3|regex:/^[a-zA-Z-\' ]*$/',
             'service_code' => 'required|digits:4|unique:services,code',
             'service_type' => 'required',
             'additional_info' => 'required',
             'cost' => 'required',
+            'image' => 'required',
 
         ], [
             'service_name.required' => 'Service name is required',
@@ -63,13 +52,26 @@ class ServiceController extends Controller
             'additional_info.required'  => 'Additional_info is required',
 
             'cost.required' => 'cost is required',
+
+            'image.required' => 'Image is required',
  
         ]);
     
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
+        if($request->hasFile('image'))
+        {
+            $file=$request->file('image');
+            $extensio=$file->getClientOriginalExtension();
+            $file_name= time().'.'.$extensio;
+            $file->move('img/services/',$file_name);
+            $image=$file_name;
+        }
+        else{
+            return $request;
+            $image='';
+        }
         DB::insert("insert into services (service_name, service_code,  service_type, cost, additional_info,image) 
         values (?,?,?,?,?,?)",[ $service_name, $service_code, $service_type,$cost,$additional_info,$image]);
 

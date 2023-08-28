@@ -57,6 +57,9 @@
   <input type="file" id="form6Example6" name="image" value="{{ old('image') }}" class="form-control" />
   <label class="form-label" for="form6Example6">Image</label>
 </div>
+@error('image')
+      <div class="text-danger">{{ $message }}</div>
+    @enderror
       <!-- Additional information  -->
       <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
         <textarea class="form-control" id="form6Example10" type="text" name="additional_info" value="" rows="4"></textarea>

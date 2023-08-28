@@ -89,11 +89,14 @@
                   @error('email')
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
-<!-- Image -->
-<div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-  <input type="file" id="form6Example6" name="image" value="{{ old('image') }}" class="form-control" />
-  <label class="form-label" for="form6Example6">Image</label>
-</div>
+                <!-- Image -->
+                <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+                  <input type="file" id="form6Example6" name="image" value="{{ old('image') }}" class="form-control" />
+                  <label class="form-label" for="form6Example6">Image</label>
+                </div>
+                @error('image')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
                   <!-- Password input -->
                   <div class="form-outline mb-4" style="font-family: 'Cormorant Garamond', serif; ">
                     <input type="password" id="form3Example4" class="form-control" name="password" value="{{ old('password') }}" />

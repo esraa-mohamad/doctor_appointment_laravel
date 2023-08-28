@@ -122,7 +122,9 @@
       <label class="form-label" for="form6Example8">Image</label>
      
     </div>
-
+    @error('image')
+    <div class="text-danger">{{ $message }}</div>
+  @enderror
 
       <!-- Additional information  -->
       <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
