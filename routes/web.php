@@ -17,6 +17,15 @@ Route::group(['middleware'=>'mypatient'], function(){
     Route::get('/home', [PatientController::class, 'home'])->name('home');
     Route::get('/services', [ServiceController::class, 'services'])->name('services');
     Route::get('/doctors', [DoctorController::class, 'Doctors'])->name('Doctors');
+
+    Route::get('/SearchDoctorForPatient', [DoctorController::class, 'Search_doctor_forPatient'])->name('Search_doctor_forPatient');
+
+
+
+
+
+
+
     Route::get('/appointmentCard', [AppointmentController::class, 'appointmentCard'])->name('appointmentCard');
     Route::post('/appointmentCard/{id}', [AppointmentController::class, 'delete_booking'])->name('cancel_appointment');
     Route::get('/booking/{id}', [AppointmentController::class, 'booking'])->name('booking');
