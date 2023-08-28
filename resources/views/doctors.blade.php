@@ -11,7 +11,7 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-md-2 g-4">
       @foreach ($doctors as $doctor)
-      <div class="col col-lg-3 col-md-6">
+      <div class="col col-lg-4 col-md-6">
         <div class="card pos">
           <img src="{{asset('img/doctors/'.$doctor->image)}}" class="card-img-top" alt="...">
           <div class="product-overlay">
@@ -23,7 +23,7 @@
             </ul>
           </div> <!-- product-overlay -->
           <div class="card-body">
-            <h3 class="card-title text-center">Dr. {{$doctor->fname}} {{$doctor->lname}}</h3>
+            <h3 class="card-title text-center">{{$doctor->fname}} {{$doctor->lname}}</h3>
             <h5 class="text-center"> {{$doctor->specialty}}</h5>
             <p class="m text-center">{{$doctor->shift_time}}</p>
             <p class="n text-center">{{ $doctor->phone }}</p>
