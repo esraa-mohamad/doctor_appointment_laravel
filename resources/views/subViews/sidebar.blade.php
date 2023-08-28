@@ -5,7 +5,7 @@
         @if(session('staff'))
         <a class="list-group-item py-2 ripple text-white"
           aria-current="true"
-          @class([Route::is('dashboard')])aria-current="page" href="{{route('dashboard')}}">patients
+          @class([Route::is('dashboard')])aria-current="page" href="{{route('dashboard')}}">Appointments
         <i class="bi bi-clipboard2-pulse-fill"></i><span></span>
         </a>
         <a class="list-group-item" href="{{route('handleLogoutStaff')}}">
