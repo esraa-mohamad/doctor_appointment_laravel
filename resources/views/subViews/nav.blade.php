@@ -40,7 +40,7 @@
     <div class="right" style="font-family: 'Cormorant Garamond', serif; ">
       <div class="row" style="margin-right: 40px;">
         <div class="col-7" style="text-align: center;">
-          <i class="fa-solid fa-user"></i>
+          <img src="{{asset('img/patients/'.session('patient')->image)}}" alt="" class="profile">
           <p class="user_name" style="padding: 0; margin:0">Hi {{session('patient')->fname}} </p>
         </div>
         <div class="col-5 last" style="display: flex; ">
