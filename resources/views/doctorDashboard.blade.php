@@ -6,8 +6,8 @@
     <!--Main Navigation-->
 <header>
 
-    <div class="container">
-      <button type="button" id="btt" class="btn btn-info"> <a class="text-white"
+    <div class="container" style="margin-left: 200px">
+      <button type="button" id="btt" class="btn btn-info" style="margin-left:0px"> <a class="text-white"
         @class([Route::is('Add_Doctor')])aria-current="page" href="{{route('Add_Doctor')}}">ADD Doctor+ </a
         > </button>
 
@@ -27,56 +27,6 @@
          
         </div>
 
-
-        <!-- last name -->
-        <div class="col">
-          <div class="form-outline">
-            <input type="text" id="form6Example2" name="lname" value="{{request('lname')}}" class="form-control" />
-            <label class="form-label" for="form6Example2">Last name</label>
-          </div>
-         
-        </div>
-
-      </div>
-
-      <!-- address -->
-      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif; ">
-        <input type="text" id="form6Example3" name="address" value="{{request('address')}}" class="form-control" />
-        <label class="form-label" for="form6Example3">Address</label>
-       
-      </div>
-     
-
-      <!-- national id -->
-      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-        <input type="text" id="form6Example4" name="national_id" value="{{request('national_id')}}" class="form-control" />
-        <label class="form-label" for="form6Example4">National id </label>
-       
-      </div>
-    
-
-      <!-- Email  -->
-      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-        <input type="email" id="form6Example5" name="email" value="{{request('email')}}" class="form-control" />
-        <label class="form-label" for="form6Example5">Email</label>
-       
-      </div>
-      
-
-
-      <!-- Phone Number -->
-      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-        <input type="text" id="form6Example6" name="phone" value="{{request('phone')}}" class="form-control" />
-        <label class="form-label" for="form6Example6">Phone</label>
-      
-      </div>
-    
-
-      <!-- code  -->
-      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-        <input type="number" id="form6Example7" name="code" value="{{request('code')}}" class="form-control" />
-        <label class="form-label" for="form6Example7">code</label>
-       
       </div>
      
      <!-- Specialty -->
@@ -86,21 +36,6 @@
      
     </div>
   
-      <!-- shift time -->
-      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-        <input type="text" id="form6Example8" name="shift_time" value="{{request('shift_time')}}" class="form-control" />
-        <label class="form-label" for="form6Example8">shift time</label>
-       
-      </div>
-     
-
-      <!-- salary -->
-      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-        <input type="text" id="form6Example9" name="sallary" value="{{request('sallary')}}" class="form-control" />
-        <label class="form-label" for="form6Example9">Salary</label>
-       
-      </div>
-
       <!-- Submit button -->
       <input type="submit" class="btn btn-primary btn-block mb-4" style="font-family: 'Cormorant Garamond'; font-size: 15px;" name="search_doctor" value="search">
     </form>
@@ -110,7 +45,7 @@
 
 
 
-    <table class="table">
+    <table class="table" style="margin-left:0px">
       <thead>
         <tr>
           <th scope="col">id</th>

@@ -79,16 +79,7 @@
   <!------------------------------------------------------------- end search form--------------------------------------------------- -->
 
 
-
-
-
-
-
-
-
-
-
-  <div class="container">
+  <div class="container" style="margin-top: 100px">
     <div class="row row-cols-1 row-cols-md-2 g-4">
       @foreach ($doctors as $doctor)
       <div class="col col-lg-3 col-md-6">
