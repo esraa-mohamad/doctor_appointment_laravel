@@ -40,7 +40,7 @@
          <td>   
           <form method="post" action="{{route('delete_appointment',['id'=>$patient->id])}}">
           @csrf
-          <input type="submit" class="btn btn-danger" value="delete">
+          <input type="submit" class="btn btn-danger" value="Delete">
         </form></td>
          </tr>
        @endforeach

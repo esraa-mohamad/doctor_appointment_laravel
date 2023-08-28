@@ -17,14 +17,14 @@
     </div>
     <div class="card-body">
       <h5 class="card-title"> {{ $appointment->fname }}</h5>
-      <p class="card-text">your date: {{ $appointment->date }}</p>
-      <p class="card-text"> your time: {{ $appointment->time }}</p>
-      <p class="card-text">doctor :{{ $appointment->doctor_name }}</p>
+      <p class="card-text">Your Date: {{ $appointment->date }}</p>
+      <p class="card-text"> Your Time: {{ $appointment->time }}</p>
+      <p class="card-text">Doctor :{{ $appointment->doctor_name }}</p>
     </div>
     <div class="card-footer text-muted">
         <form method="post" action="{{route('cancel_appointment',['id'=>$appointment->id])}}">
             @csrf
-            <input type="submit" class="btn btn-danger" value="cancel">
+            <input type="submit" class="btn btn-danger" value="Cancel">
           </form>
     </div>
 
