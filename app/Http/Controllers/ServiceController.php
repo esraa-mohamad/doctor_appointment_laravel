@@ -58,11 +58,11 @@ class ServiceController extends Controller
             'service_code.unique' => 'Code already exists',
 
 
-            'service_type.required' => 'service_type is required',
+            'service_type.required' => 'Service_type is required',
 
             'additional_info.required'  => 'Additional_info is required',
 
-            'cost.required' => 'cost is required',
+            'cost.required' => 'Cost is required',
  
         ]);
     
@@ -111,4 +111,27 @@ class ServiceController extends Controller
         return redirect(route('serviceDashboard'));
    
     } 
+    public function Search_service(Request $request){
+        $service_name=$request->service_name;
+        $service_code=$request->service_code;
+        $service_type=$request->service_type;
+        $cost=$request->cost;
+
+        $services=DB::select("select * from services where 
+        (:service_name is null or service_name like :service_name)
+        and (:service_code is null or service_code like :service_code)
+        and (:service_type is null or service_type like :service_type)
+        and (:cost is null or cost like :cost)
+        ",[
+            'service_name'=>"%$service_name%",
+            'service_code'=>"%$service_code%",
+            'service_type'=>"%$service_type%",
+            'cost'=>"%$cost%"
+
+            ]
+    );
+
+    return view('serviceDashboard',['services'=>$services]);
+
+    }
 }

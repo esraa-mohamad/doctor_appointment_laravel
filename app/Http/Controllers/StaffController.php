@@ -113,11 +113,11 @@ class StaffController extends Controller
 
             'additional_info.required'  => 'Additional_info is required',
 
-            'sallary.required' => 'sallary is required',
+            'sallary.required' => 'Sallary is required',
 
-            'shift_time.required'  => 'shift_time is required',
+            'shift_time.required'  => 'Shift_time is required',
 
-            'staff_type.required'  => 'staff_type is required',
+            'staff_type.required'  => 'Staff_type is required',
            
  
         ]);

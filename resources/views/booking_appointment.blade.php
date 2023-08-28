@@ -3,7 +3,7 @@
 @section('content')
 
 
-<body style="font-family: 'Merienda', cursive;">
+<body>
 
 
   @include('subViews.nav')
@@ -25,7 +25,8 @@
 
         <div class="row d-flex justify-content-center">
           <div class="col-lg-8">
-            <h2 class="fw-bold mb-5" style="text-shadow: 2px 4px 4px rgba(46,91,173,0.6);">Booking Appointment</h2>
+            <h2 class="fw-bold mb-5" style="text-shadow: 2px 4px 4px rgba(46,91,173,0.6);font-family: 'Merienda', cursive;">Booking Appointment</h2>
+            
             <form method="post" action="{{route('handleappointment')}}">
               <!-- 2 column grid layout with text inputs for the first and last names -->
                 @csrf
@@ -60,37 +61,45 @@
               </div>
 
               <!-- address  -->
-              <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+              <div style="font-family: 'Cormorant Garamond', serif;" class=" mb-2">
+                <div class="form-outline" >
                 <input type="text" id="form3Example5" class="form-control" name="address" value="{{old('address')}}" />
                 <label class="form-label" for="form3Example5">Address</label>
               </div>
               
-      @error('address')
-      <div class="text-danger">{{ $message }}</div>
-    @enderror 
+                @error('address')
+                <div class="text-danger">{{ $message }}</div>
+              @enderror 
+            </div>
 
               <!-- phone  -->
-              <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
+              <div style="font-family: 'Cormorant Garamond', serif;" class=" mb-2">
+                <div class="form-outline" >
                 <input type="text" id="form3Example6" class="form-control" name="phone" value="{{session('patient')->phone}}" />
                 <label class="form-label" for="form3Example6">Phone</label>
               </div>
+            </div>
 
               <!-- Date  -->
-              <div class="form-outline mb-4" style="font-family: 'Cormorant Garamond', serif;">
+              <div style="font-family: 'Cormorant Garamond', serif;" class=" mb-2">
+                <div class="form-outline" >
                 <input type="date" id="form3Example7" class="form-control" name="date" value="{{old('date')}}" />
                 <label class="form-label" for="form3Example7">Date</label>
               </div>
               @error('date')
               <div class="text-danger">{{ $message }}</div>
             @enderror 
+          </div>
         
               <!-- Time  -->
-              <div class="form-outline mb-4" style="font-family: 'Cormorant Garamond', serif;">
+              <div style="font-family: 'Cormorant Garamond', serif;" class=" mb-2">
+                <div class="form-outline" >
                 <input type="time" id="form3Example8" class="form-control" name="time" value="{{old('time')}}" />
               </div>
               @error('time')
               <div class="text-danger">{{ $message }}</div>
             @enderror 
+          </div>
         
 
 
