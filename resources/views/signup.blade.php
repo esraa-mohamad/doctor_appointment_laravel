@@ -102,13 +102,16 @@
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
               </div>
-                <!-- Image -->
-                <div style="font-family: 'Cormorant Garamond', serif;" class=" mb-2">
+                                <!-- Image -->
+                                <div style="font-family: 'Cormorant Garamond', serif;" class=" mb-2">
                   <div class="form-outline" >
-                  <input type="file" id="form6Example6" name="image" value="{{ old('image') }}" class="form-control" />
-                  <label class="form-label" for="form6Example6">Image</label>
+                                  <input type="file" id="form6Example6" name="image" value="{{ old('image') }}" class="form-control" />
+                                  <label class="form-label" for="form6Example6">Image</label>
                 </div>
-              </div>
+                              </div>
+                @error('image')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
                   <!-- Password input -->
                   <div style="font-family: 'Cormorant Garamond', serif;" class=" mb-2">
                     <div class="form-outline" >

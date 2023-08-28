@@ -40,8 +40,8 @@
     <div class="right" style="font-family: 'Cormorant Garamond', serif; ">
       <div class="row" style="margin-right: 40px;">
         <div class="col-7" style="text-align: center;">
-          <img src="{{asset('img/patients/'.session('patient')->image)}}" alt="" class="profile">
-          <p class="user_name" style="padding: 0; margin:0">Hi {{session('patient')->fname}} </p>
+          <img src="{{asset('img/patients/'.session('patient')->image)}}" alt="photo" class="profile">
+          <p class="user_name" style="padding: 0; margin:0">Hi {{session('patient')->fname}} {{session('patient')->lname}}</p>
         </div>
         <div class="col-5 last" style="display: flex; ">
           <a href="{{route('handleLogoutPatient')}}">

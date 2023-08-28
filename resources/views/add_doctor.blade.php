@@ -140,7 +140,9 @@
      
     </div>
   </div>
-
+    @error('image')
+    <div class="text-danger">{{ $message }}</div>
+  @enderror
 
       <!-- Additional information  -->
       <div style="font-family: 'Cormorant Garamond', serif;"  class=" mb-2">

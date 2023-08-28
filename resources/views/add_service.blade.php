@@ -65,6 +65,9 @@
       <input type="file" id="form6Example6" name="image" value="{{ old('image') }}" class="form-control" />
       <label class="form-label" for="form6Example6">Image</label>
     </div>
+@error('image')
+      <div class="text-danger">{{ $message }}</div>
+    @enderror
     </div>
 
       <!-- Additional information  -->

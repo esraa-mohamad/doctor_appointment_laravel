@@ -32,19 +32,7 @@ class DoctorController extends Controller
         $sallary=$request->sallary;
         $specialty=$request->specialty;
         $additional_info=$request->additional_info;
-        if($request->hasFile('image'))
-        {
-            $file=$request->file('image');
-            $extensio=$file->getClientOriginalExtension();
-            $file_name= time().'.'.$extensio;
-            $file->move('img/doctors/',$file_name);
-            $image=$file_name;
-        }
-        else{
-            return $request;
-            $image='';
-        }
-
+        $image=$request->image;
         $validator = Validator::make($request->all(), [
             'fname' => 'required|string|min:3|regex:/^[a-zA-Z-\' ]*$/',
             'lname' => 'required|string|min:3|regex:/^[a-zA-Z-\' ]*$/',
@@ -57,6 +45,7 @@ class DoctorController extends Controller
             'address' => 'required',
             'shift_time' => 'required',
             'specialty' => 'required',
+            'image'=>'required'
 
         ], [
             'fname.required' => 'First name is required',
@@ -94,14 +83,26 @@ class DoctorController extends Controller
             'shift_time.required'  => 'Shift_time is required',
 
             'specilty.required'  => 'Specialty is required',
-           
+
+            'image.required' => 'Image  is required',
  
         ]);
     
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
+        if($request->hasFile('image'))
+        {
+            $file=$request->file('image');
+            $extensio=$file->getClientOriginalExtension();
+            $file_name= time().'.'.$extensio;
+            $file->move('img/doctors/',$file_name);
+            $image=$file_name;
+        }
+        else{
+            return $request;
+            $image='';
+        }
         DB::insert("insert into doctors (fname, lname, address, national_id, email,phone, code, shift_time, sallary, additional_info,specialty,image) 
         values (?,?,?,?,?,?,?,?,?,?,?,?)",[$fname,$lname,$address,$national_id, $email, $phone, $code, $shift_time, $sallary,$additional_info,$specialty,$image]);
 

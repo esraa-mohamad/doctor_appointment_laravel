@@ -82,7 +82,7 @@
   <div class="container" style="margin-top: 100px">
     <div class="row row-cols-1 row-cols-md-2 g-4">
       @foreach ($doctors as $doctor)
-      <div class="col col-lg-3 col-md-6">
+      <div class="col col-lg-4 col-md-6">
         <div class="card pos">
           <img src="{{asset('img/doctors/'.$doctor->image)}}" class="card-img-top" alt="...">
           <div class="product-overlay">
@@ -93,9 +93,9 @@
               <li><a href="#"><i class="fab fa-instagram" style="color: white !important;"></i></a></li>
             </ul>
           </div> <!-- product-overlay -->
-          <div class="card-body"style="text-align:center;font-family: 'Cormorant Garamond'; ">
-            <h3 class="card-title text-center" style="font-size: 25px">Dr. {{$doctor->fname}} {{$doctor->lname}}</h3>
-            <h5 class="text-center" style="font-family: 'Cormorant Garamond'"> {{$doctor->specialty}}</h5>
+          <div class="card-body">
+            <h3 class="card-title text-center">Dr. {{$doctor->fname}} {{$doctor->lname}}</h3>
+            <h5 class="text-center"> {{$doctor->specialty}}</h5>
             <p class="m text-center">{{$doctor->shift_time}}</p>
             <p class="n text-center">{{ $doctor->phone }}</p>
             <h6 class="text-center"> {{ $doctor->additional_info }}</h6>

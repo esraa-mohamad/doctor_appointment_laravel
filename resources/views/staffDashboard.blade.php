@@ -22,7 +22,6 @@
           <th scope="col">national id</th>
           <th scope="col">email</th>
           <th scope="col">phone</th>
-          <th scope="col">Password</th>
           <th scope="col">shift_time</th>
           <th scope="col">salary</th>
           <th scope="col">staff_type</th>
@@ -41,7 +40,6 @@
          <td>{{ $staff->national_id }}</td>
          <td>{{ $staff->email }}</td>
          <td>{{ $staff->phone }}</td>
-         <td>{{ $staff->password }}</td>
          <td>{{ $staff->shift_time }}</td>
          <td>{{ $staff->sallary }}</td>
          <td>{{ $staff->staff_type }}</td>
