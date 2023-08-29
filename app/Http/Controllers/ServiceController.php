@@ -97,7 +97,7 @@ class ServiceController extends Controller
             $file=$request->file('image');
             $extensio=$file->getClientOriginalExtension();
             $file_name= time().'.'.$extensio;
-            $file->move('img/doctors/',$file_name);
+            $file->move('img/services/',$file_name);
             $image=$file_name;
         }
 
