@@ -2,7 +2,7 @@
 
 @section('content')
 
-<body style="font-family: 'Merienda', cursive;">
+<body>
   <!-- Section: Design Block -->
   <section class="text-center text-lg-start">
     <style>
@@ -26,7 +26,7 @@
               backdrop-filter: blur(30px);
               ">
             <div class="card-body p-5 shadow-5 text-center">
-              <h2 class="fw-bold mb-5" style="text-shadow: 2px 4px 4px rgba(46,91,173,0.6);">Login</h2>
+              <h2 class="fw-bold mb-5" style="text-shadow: 2px 4px 4px rgba(46,91,173,0.6);font-family: 'Merienda', cursive;">Login</h2>
               <form method="post" action="{{route('handleLoginPatient')}}">
                 @csrf
                 <!-- 2 column grid layout with text inputs for the first and last names -->
@@ -39,13 +39,15 @@
                 </div>
 
                 <!-- Password input -->
-                <div class="form-outline mb-4" style="font-family: 'Cormorant Garamond', serif; ">
+                <div style="font-family: 'Cormorant Garamond', serif; " class=" mb-4">
+                <div class="form-outline">
                   <input type="password" id="form3Example4" name="password" class="form-control" />
                   <label class="form-label" for="form3Example4">Password</label>
                 </div>
                 @if(session('error')) 
-                <span class="error">{{ session('error') }}</span> <br>
+                <span class="error" style="color: red;">{{ session('error') }}</span> <br>
                 @endif
+              </div>
 
                 <input type="submit" value="Login" class="btn btn-primary btn-block mb-4" style="font-family: 'Cormorant Garamond'">
                 {{-- <!-- Submit button -->

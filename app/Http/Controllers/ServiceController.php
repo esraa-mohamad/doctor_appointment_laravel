@@ -116,6 +116,25 @@ class ServiceController extends Controller
     public function Search_service(Request $request){
         $service_name=$request->service_name;
         $service_code=$request->service_code;
+
+        $services=DB::select("select * from services where 
+        (:service_name is null or service_name like :service_name)
+        and (:service_code is null or service_code like :service_code)
+        ",[
+            'service_name'=>"%$service_name%",
+            'service_code'=>"%$service_code%",
+
+            ]
+    );
+
+    return view('serviceDashboard',['services'=>$services]);
+
+    }
+
+
+    public function Search_service_for_patient(Request $request){
+        $service_name=$request->service_name;
+        $service_code=$request->service_code;
         $service_type=$request->service_type;
         $cost=$request->cost;
 
@@ -133,7 +152,7 @@ class ServiceController extends Controller
             ]
     );
 
-    return view('serviceDashboard',['services'=>$services]);
+    return view('services',['services'=>$services]);
 
     }
 }
