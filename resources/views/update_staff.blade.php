@@ -66,7 +66,7 @@
       </div>
      
 
-      <!-- code  -->
+      <!-- password  -->
       <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
         <input type="password" id="form6Example7" name="password" value="{{$staff->password}}" class="form-control" />
         <label class="form-label" for="form6Example7">password</label>
@@ -90,12 +90,6 @@
        
       </div>
 
-      <!-- Specialty -->
-      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-        <input type="text" id="form6Example8" name="specialty" value="{{$staff->specialty}}" class="form-control" />
-        <label class="form-label" for="form6Example8">Specialty</label>
-      
-      </div>
       
       
       <!-- Additional information  -->
