@@ -70,29 +70,6 @@
         <label class="form-label" for="form6Example3">Service name</label>
       </div>
 
-     
-      <!-- Service code -->
-      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-        <input type="text" id="form6Example4" name="service_code" value="{{request('service_code')}}" class="form-control" />
-        <label class="form-label" for="form6Example4">Service code</label>
-      </div>
-
-     
-
-      <!-- service type  -->
-      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-        <input type="text" id="form6Example5" name="service_type" value="{{request('service_type')}}" class="form-control" />
-        <label class="form-label" for="form6Example5">Surgery type</label>
-      </div>
-
-     
-
-      <!-- cost -->
-      <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-        <input type="text" id="form6Example6" name="cost" value="{{request('cost')}}" class="form-control" />
-        <label class="form-label" for="form6Example6">Cost</label>
-      </div>
-
 
       <!-- Submit button -->
       <input type="submit" class="btn btn-primary btn-block mb-4" style="font-family: 'Cormorant Garamond'; font-size: 15px;" name="add_service" value="Search">
@@ -100,38 +77,30 @@
     <a href="{{route('services')}}" class="btn btn-primary btn mb-5" style="font-family: 'Cormorant Garamond'; font-size: 15px; float:right; color:white;">clear Search</a>
 
         <!-- ---------------------------------end search services---------------------------------------- -->
-
-
-
-
     </div>
-    <div class="container" style="margin-top:100px;">
-      <div class="row">
+
+    <div class="container" style="margin-top: 100px">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
         @foreach ($services as $service)
-        <div class=" col-lg-3 col-md-6 mb-4">
-          <div class=" price pricing_card" style="font-family: 'Cormorant Garamond';font-size:25px; text-align:center; border-radius:10px">
-            <div class="pricing_header text-center">
-              <h4 style="padding-top:10px">{{ $service->service_name }}</h4>
-              <img src="{{asset('img/services/'. $service->image )}}" alt="" class="imm">
+        <div class="col col-lg-4 col-md-6">
+          <div class="card pos" style="height: 750px">
+            <img src="{{asset('img/services/'. $service->image )}}" class="card-img-top" alt="...">
+            <div class="product-overlay">
+             
+            </div> <!-- product-overlay -->
+            <div class="card-body">
+              <h3 class="card-title text-center"style="font-family: 'Cormorant Garamond', serif;">{{ $service->service_name }}</h3>
+              <h5 class="text-center" style="font-family: 'Cormorant Garamond', serif;">Service type: {{ $service->service_type }}</h5>
+              <p class="m text-center" style="font-size: 18px;font-family: 'Cormorant Garamond', serif;">Service code: {{ $service->service_code }}</p>
+              <p class="n text-center" style="font-size: 18px;font-family: 'Cormorant Garamond', serif;">Service cost: {{ $service->cost }}</p>
+              <h6 class="text-center" style="font-size: 18px;font-family: 'Cormorant Garamond', serif;">Additional information: {{ $service->additional_info }}</h6>
+              
             </div>
-            <div class="pricing_body text-center">
-              <div class="pri text-center" style="padding-bottom:0px" ><h2>150$</h2></div>
-              <div class="benefits " >
-                <ul style="padding: 0px; padding-bottom:20px;">
-                  <li>{{ $service->service_type }}</li>
-                  <li>{{ $service->service_code }}</li>
-                  <li>{{ $service->additional_info }}</li>
-                  <li>{{ $service->cost }}</li>
-                </ul>
-              </div>
             </div>
-          </div>
         </div>
         @endforeach
-        
-        
       </div>
-    </div>
+  </div>
 
       <!-- ---------------- pricing section ends--------------------->
       @include('subViews.footer')

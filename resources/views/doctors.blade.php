@@ -27,48 +27,15 @@
        
       </div>
 
-
-      <!-- last name -->
-      <div class="col">
-        <div class="form-outline">
-          <input type="text" id="form6Example2" name="lname" value="{{request('lname')}}" class="form-control" />
-          <label class="form-label" for="form6Example2">Last name</label>
-        </div>
-       
-      </div>
-
     </div>
 
-
-    <!-- Email  -->
-    <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-      <input type="email" id="form6Example5" name="email" value="{{request('email')}}" class="form-control" />
-      <label class="form-label" for="form6Example5">Email</label>
-     
-    </div>
-    
-
-
-    <!-- Phone Number -->
-    <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-      <input type="text" id="form6Example6" name="phone" value="{{request('phone')}}" class="form-control" />
-      <label class="form-label" for="form6Example6">Phone</label>
-    
-    </div>
-   
-   <!-- Specialty -->
+ <!-- Specialty -->
    <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
     <input type="text" id="form6Example8" name="specialty" value="{{request('specialty')}}" class="form-control" />
     <label class="form-label" for="form6Example8">Specialty</label>
    
   </div>
 
-    <!-- shift time -->
-    <div class="form-outline mb-2" style="font-family: 'Cormorant Garamond', serif;">
-      <input type="text" id="form6Example8" name="shift_time" value="{{request('shift_time')}}" class="form-control" />
-      <label class="form-label" for="form6Example8">shift time</label>
-     
-    </div>
    
 
     <!-- Submit button -->
@@ -86,22 +53,13 @@
         <div class="card pos">
           <img src="{{asset('img/doctors/'.$doctor->image)}}" class="card-img-top" alt="...">
           <div class="product-overlay">
-            <ul class="list-unstyled">
-              <li><a href="#"><i class="fab fa-facebook" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-linkedin" style="color: white !important;"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram" style="color: white !important;"></i></a></li>
-            </ul>
           </div> <!-- product-overlay -->
-          <div class="card-body">
-            <h3 class="card-title text-center">Dr. {{$doctor->fname}} {{$doctor->lname}}</h3>
-            <h5 class="text-center"> {{$doctor->specialty}}</h5>
-          <div class="card-body"style="text-align:center;font-family: 'Cormorant Garamond'; ">
-            <h3 class="card-title text-center" style="font-size: 25px">{{$doctor->fname}} {{$doctor->lname}}</h3>
-            <h5 class="text-center" style="font-family: 'Cormorant Garamond'"> {{$doctor->specialty}}</h5>
-            <p class="m text-center">{{$doctor->shift_time}}</p>
-            <p class="n text-center">{{ $doctor->phone }}</p>
-            <h6 class="text-center"> {{ $doctor->additional_info }}</h6>
+          <div class="card-body" style="text-align:center; height:400px">
+            <h3 class="card-title text-center"style="font-family: 'Cormorant Garamond', serif;">Dr. {{$doctor->fname}} {{$doctor->lname}}</h3>
+            <h5 class="text-center" style="font-family: 'Cormorant Garamond', serif;"> {{$doctor->specialty}}</h5>
+            <p class="m text-center" style="font-size: 18px;font-family: 'Cormorant Garamond', serif;">{{$doctor->shift_time}}</p>
+            <p class="n text-center" style="font-size: 18px;font-family: 'Cormorant Garamond', serif;">{{ $doctor->phone }}</p>
+            <h6 class="text-center" style="font-family: 'Cormorant Garamond', serif;"> {{ $doctor->additional_info }}</h6>
             <a href="{{route('booking',['id'=>$doctor->id])}}" class="btn btn-primary"  >Booking Appointment</a>
             
             

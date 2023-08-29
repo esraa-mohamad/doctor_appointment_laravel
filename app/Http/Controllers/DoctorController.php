@@ -157,36 +157,12 @@ class DoctorController extends Controller
 
     public function Search_doctor(Request $request){
         $fname=$request->fname;
-        $lname=$request->lname;
-        $address=$request->address;
-        $national_id=$request->national_id;
-        $email=$request->email;
-        $phone=$request->phone;
-        $code=$request->code;
-        $shift_time=$request->shift_time;
-        $sallary=$request->sallary;
         $specialty=$request->specialty;
        
        $doctors= DB::select("select * from doctors where 
         (:fname is null or fname like :fname)
-        and (:lname is null or lname like :lname)
-        and (:address is null or address like :address)
-        and (:national_id is null or national_id like :national_id)
-        and (:email is null or email like :email)
-        and (:phone is null or phone like :phone)
-        and (:code is null or code like :code)
-        and (:shift_time is null or shift_time like :shift_time)
-        and (:sallary is null or sallary like :sallary)
         and (:specialty is null or specialty like :specialty)" ,[
         'fname'=>"%$fname%",
-        'lname'=>"%$lname%",
-        'address'=>"%$address%",
-        'national_id'=>"%$national_id%",
-        'email'=>"%$email%",
-        'phone'=>"%$phone%",
-        'code'=>"%$code%",
-        'shift_time'=>"%$shift_time%",
-        'sallary'=>"%$sallary%",
         'specialty'=>"%$specialty%",
 
         ]

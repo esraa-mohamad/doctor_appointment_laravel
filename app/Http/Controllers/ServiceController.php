@@ -134,20 +134,12 @@ class ServiceController extends Controller
 
     public function Search_service_for_patient(Request $request){
         $service_name=$request->service_name;
-        $service_code=$request->service_code;
-        $service_type=$request->service_type;
-        $cost=$request->cost;
+       
 
         $services=DB::select("select * from services where 
         (:service_name is null or service_name like :service_name)
-        and (:service_code is null or service_code like :service_code)
-        and (:service_type is null or service_type like :service_type)
-        and (:cost is null or cost like :cost)
         ",[
             'service_name'=>"%$service_name%",
-            'service_code'=>"%$service_code%",
-            'service_type'=>"%$service_type%",
-            'cost'=>"%$cost%"
 
             ]
     );
