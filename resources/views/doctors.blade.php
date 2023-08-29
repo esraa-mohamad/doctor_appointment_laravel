@@ -93,6 +93,9 @@
               <li><a href="#"><i class="fab fa-instagram" style="color: white !important;"></i></a></li>
             </ul>
           </div> <!-- product-overlay -->
+          <div class="card-body">
+            <h3 class="card-title text-center">Dr. {{$doctor->fname}} {{$doctor->lname}}</h3>
+            <h5 class="text-center"> {{$doctor->specialty}}</h5>
           <div class="card-body"style="text-align:center;font-family: 'Cormorant Garamond'; ">
             <h3 class="card-title text-center" style="font-size: 25px">{{$doctor->fname}} {{$doctor->lname}}</h3>
             <h5 class="text-center" style="font-family: 'Cormorant Garamond'"> {{$doctor->specialty}}</h5>
